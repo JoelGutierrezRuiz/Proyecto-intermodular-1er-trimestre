@@ -10,6 +10,7 @@ searchButton.addEventListener("click",()=>{
 
     let search = "?nombre="+searchInput.value;
 
+    
 
 
     fetch(url+search).then((mes)=>mes.json())

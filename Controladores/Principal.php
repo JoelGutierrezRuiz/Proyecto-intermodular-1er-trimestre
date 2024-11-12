@@ -2,10 +2,9 @@
 session_start();
 //unset($_SESSION["email"]);
 //unset($_SESSION["nombre"]);
-if(isset($_SESSION['email'])){
-    echo $_SESSION['email'].' --> '.$_SESSION['nombre'] ;
-}
-else{
+if (isset($_SESSION['email'])) {
+    echo $_SESSION['email'] . ' --> ' . $_SESSION['nombre'];
+} else {
     echo "No has iniciado sesion";
 }
 
@@ -75,9 +74,9 @@ else{
                     placeholder="Encuentra el juego perfecto para tí..." type="text">
 
                 <a href="../Vistas/productos.html">
-                <span class="cabecera-buscador-icono material-symbols-rounded" id="lupa">
-                    search
-                </span>
+                    <span class="cabecera-buscador-icono material-symbols-rounded" id="lupa">
+                        search
+                    </span>
                 </a>
 
                 <span id="login" class="material-symbols-rounded d-xl-block d-none">
@@ -168,7 +167,8 @@ else{
                     Explora
                 </button>
             </div>
-            <img src="../Imágenes/portadas/familiaPortada.png" class="portada-img order-xl-3 img-mobile col-12 col-xl-2">
+            <img src="../Imágenes/portadas/familiaPortada.png"
+                class="portada-img order-xl-3 img-mobile col-12 col-xl-2">
         </div>
 
 
@@ -192,49 +192,59 @@ else{
 
             <div class="seccion-productos col-xl-8 offset-xl-2 col-12 ">
 
-
-
                 <p class="seccion-titulo row">Lo más vendido</p>
 
                 <div class="seccion-productos-imagenes row">
 
                     <div class="seccion-productos-imagen col-6 col-md-4  col-xl-2">
-                        <img class="img-fluid" src="../Imágenes/juegos/monopoly.png">
+                        <a href="../Vistas/verProducto.html">
+                            <img class="img-fluid" src="../Imágenes/juegos/monopoly.png">
+                        </a>
                         <p>monopoly</p>
                         <p>25$</p>
                     </div>
 
 
                     <div class="seccion-productos-imagen col-6 col-md-4  col-xl-2">
-                        <img class="img-fluid" src="../Imágenes/juegos/parchis.png">
+                        <a href="">
+                            <img class="img-fluid" src="../Imágenes/juegos/parchis.png">
+                        </a>
                         <p>Parchís</p>
                         <p>15$</p>
                     </div>
 
 
                     <div class="seccion-productos-imagen col-6 col-md-4  col-xl-2">
-                        <img class="img-fluid" src="../Imágenes/juegos/pictionary.jpg">
+                        <a href="">
+                            <img class="img-fluid" src="../Imágenes/juegos/parchis.png">
+                        </a>
                         <p>Pictionary</p>
                         <p>13$</p>
                     </div>
 
 
                     <div class="seccion-productos-imagen col-6 col-md-4  col-xl-2">
-                        <img class="img-fluid" src="../Imágenes/juegos/rumy.jpg">
+                        <a href="">
+                            <img class="img-fluid" src="../Imágenes/juegos/parchis.png">
+                        </a>
                         <p>Rummy</p>
                         <p>10$</p>
                     </div>
 
 
                     <div class="seccion-productos-imagen col-6 col-md-4  col-xl-2">
-                        <img class="img-fluid" src="../Imágenes/juegos/uno.jpg">
+                        <a href="">
+                            <img class="img-fluid" src="../Imágenes/juegos/parchis.png">
+                        </a>
                         <p>Uno</p>
                         <p>7$</p>
                     </div>
 
 
                     <div class="seccion-productos-imagen col-6 col-md-4 col-xl-2">
-                        <img class="img-fluid" src="../Imágenes/juegos/parchis.png">
+                        <a href="">
+                            <img class="img-fluid" src="../Imágenes/juegos/parchis.png">
+                        </a>
                         <p>Parchís</p>
                         <p>15$</p>
                     </div>

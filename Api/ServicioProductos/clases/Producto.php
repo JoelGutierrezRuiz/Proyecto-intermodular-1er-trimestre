@@ -8,18 +8,17 @@ class Producto
     private $descrip;
     private $foto;
     private $precio;
-    private $marca;
+    private $categoria;
 
-    public function __construct($idProducto = '', $nombre = '', $descrip = '', $foto = '', $precio = '',$marca='')
+    public function __construct($idProducto = '', $nombre = '', $descrip = '', $foto = '', $precio = '',$categoria='')
     {
         $this->idProducto = $idProducto;
         $this->nombre = $nombre;
         $this->descrip = $descrip;
         $this->foto = $foto;
         $this->precio = $precio;
-        $this->marca = $marca;
+        $this->categoria = $categoria;
     }
-
 
     public function buscarNombre($link)
     {
@@ -34,16 +33,30 @@ class Producto
         }
     }
 
+    public function buscarCategoria($link)
+    {
+        try {
+            $query = 'SELECT * FROM productos WHERE categoria=:categoria';
+            $result = $link->prepare($query);
+            $result->bindParam(":categoria", $this->categoria);
+            $result->execute();
+            return $result->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
+    }
+
+
     
 
     public function insertar($link)
     {
         try{
-            $query = 'INSERT INTO productos (nombre,foto,marca,descrip,precio) values (:nombre,:foto,:marca,:descrip,:precio)';
+            $query = 'INSERT INTO productos (nombre,foto,categoria,descrip,precio) values (:nombre,:foto,:categoria,:descrip,:precio)';
             $result = $link->prepare($query);
             $result->bindParam(":nombre",$this->nombre);
             $result->bindParam(":foto",$this->foto);
-            $result->bindParam(":marca",$this->marca);
+            $result->bindParam(":categoria",$this->categoria);
             $result->bindParam(":descrip",$this->descrip);
             $result->bindParam(":precio",$this->precio);
             return $result->execute();

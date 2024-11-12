@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: *");
 $db = new Db();
 $body=json_decode( file_get_contents("php://input"),true);
 
-echo var_dump($body["nombre"]);
+
 if($_SERVER["REQUEST_METHOD"]=="GET"){
 
     if(isset($_GET["nombre"])){
@@ -19,15 +19,22 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         echo json_encode( $producto->buscarNombre($db->link));
     }
 
+    if(isset($_GET["categoria"])){
+        $producto = new Producto("","","","","",$_GET["categoria"]);
+        //echo var_dump($producto);
+        header("HTTP/1.1 211 OK");
+        echo json_encode( $producto->buscarCategoria($db->link));
+    }
+
 }
 
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $camposDeInsercion = ["nombre","foto","descrip","precio"];
+    $camposDeInsercion = ["nombre","foto","descrip","precio","categoria"];
 
     if(comprobadorDeCampos($body,$camposDeInsercion)){
-        $producto = new Producto(null,$body["nombre"],$body["descrip"],$body["foto"],$body["precio"]);
+        $producto = new Producto(null,$body["nombre"],$body["descrip"],$body["foto"],$body["precio"],$body["categoria"]);
         header("HTTP/1.1 211 OK");
         echo json_encode( $producto->insertar($db->link));
     }
