@@ -1,0 +1,41 @@
+.resultados-row{
+
+}
+.resultados-contenedor{
+
+}
+
+.resultado-productos-row{
+
+} 
+.producto{
+    position: relative;
+    padding: 15px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.producto a{
+    padding:20px 0 0 0;
+    width: 100%;
+    height: 90%;
+    display: none;
+}
+
+.producto:hover a{
+    display: block;
+    position: absolute;
+    border: 2px solid gray;
+}
+
+.producto *{
+    margin: 5px;
+}
+
+.producto img{
+    width: 100%;
+    height:150px;
+    object-fit: contain;
+}
