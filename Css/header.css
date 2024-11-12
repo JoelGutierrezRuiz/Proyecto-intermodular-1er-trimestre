@@ -1,0 +1,190 @@
+
+body{
+    background-color: #F5F5F5;
+}
+
+/*Mensaje de promoción de envío*/
+.promocion-envio {
+    align-items: center;
+    height: 50px;
+    background-color: #F5F5F5;
+}
+.promocion-envio p {
+    padding-left:15%;
+    margin: 0;
+
+}
+
+
+/*Contenedor de la cabecera principal*/
+.cabecera-contenedor {
+    align-items: center;
+    height: 80px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+/*Contenedor del logo y el texto*/
+.logo-contenedor {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo-name{
+    font-size: 30px;
+    line-height: 40px;
+    padding-top: 10px;
+    margin:0 10px 0 0;
+    font-family: "Luckiest Guy";
+}
+.logo-img {
+    height: 40px;
+    object-fit: contain;
+}
+
+/*Botón de categorías en el header*/
+/*El margin de bootstrap impedia centrarlo desde el padre row*/
+.listaCategorias{
+    margin: 0;
+    text-align: center;
+}
+
+/*Buscador input*/
+
+.cabecera-buscador-contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cabecera-buscador-contenedor span{
+    margin-right: 10px;
+}
+
+
+
+
+.cabecera-buscador-input {
+    width: 400px;
+    height: 40px;
+    border-radius: 25px;
+    padding: 0 20px;
+    border: 2px solid #2B3A67;
+    margin-right: 10px;
+}
+
+.cabecera-buscador-icono{
+    margin: 0;
+}
+
+
+/*Contenedor de las opciones del usuario en el header*/
+.usuario-opciones {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+
+/*Iconos y su fill*/
+.material-symbols-rounded {
+    font-size: 20PX;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    color:#2B3A67;
+
+    font-variation-settings: 
+        'FILL' 0, /* Sin relleno */
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    transition: font-variation-settings 0.3s, color 0.3s; /* Transición suave */
+}
+
+.material-symbols-rounded:hover {
+    font-variation-settings: 
+        'FILL' 1, /* Con relleno al pasar el mouse */
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    color: #2B3A67; /* Cambia si es necesario */
+}
+
+@media (max-width:1200px){
+
+    .tamaño-logo-movil{
+        height: 30px;
+    }
+
+    .logo-contenedor>h1{
+        font-size:20px;
+        line-height:30px;
+        padding: 7px;
+    }
+
+    .cabecera-buscador-contenedor{
+        justify-content: flex-end;
+    }
+    .logo-contenedor{
+        margin: 0;
+        justify-content: flex-end;
+    }
+
+
+
+}
+
+.buscador-emergente-contenedor {
+background-color: white;
+}
+
+.buscador-emergente{
+    height:80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.buscador-emergente .cabecera-buscador-input{
+    width:100%;
+}
+
+
+
+#closeOptions{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#opciones-emergente{
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f5f5f5;
+    position: sticky;
+
+}
+
+.opciones{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.opciones-lista{
+    padding: 0;
+    margin: 10px 0;
+    width: 100%;
+    list-style: none;
+}
+
+

@@ -1,0 +1,9 @@
+.container-fluid:has(footer){
+    background-color: #f5f5f5;
+}
+
+
+ul img{
+    width: 60px;
+    height: 60px;
+}

@@ -1,0 +1,63 @@
+/*Portada inicio*/
+.portada-inicio{
+    font-family: "Poppins";
+    align-items: center;
+    justify-content: start;
+    color: white;
+    height: 250px;
+    background-color: #2B3A67;
+}
+.portada-texto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.portada-texto h2{
+    margin-bottom: 30px;
+}
+
+.portada-boton{
+    display: flex;
+    justify-content: center;
+}
+
+.portada-boton button{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    height:60px;
+    border-radius: 25px;
+    background-color:#F2545B;
+    border: none;
+    outline: none;
+}
+.portada-img{
+    max-width:250px;
+    border-radius: 100%;
+}
+
+@media (max-width:1200px){
+    .portada-inicio{
+        justify-content: center;
+    }
+   .img-mobile{
+        width: 10px;    
+   }
+   .portada-texto h2{
+    margin-bottom: 15px;
+    font-size: 15px;
+   }
+   .portada-texto{
+    font-size: 10px;
+   }
+   .portada-boton button{
+    width: 100px;
+    height: 40px;
+   }
+
+   .portada-img{
+    max-width:150px;
+   }
+}
