@@ -1,6 +1,6 @@
 <?php
 include "../config/autocarga.php";
-include "../funciones/comprobadores.php";
+include "../../funciones/comprobadores.php";
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");

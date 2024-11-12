@@ -6,7 +6,7 @@ const pwd = document.getElementById("pwd-cliente");
 
 
 let serverIp = "localhost"
-let url = "http://" + serverIp + "/Api/ServicioCliente/controlador/index.php";
+let url = "http://" + serverIp + "/Ludico/Api/ServicioCliente/controlador/index.php";
 var user = null;
 const errorMsg = document.getElementById("login-error");
 

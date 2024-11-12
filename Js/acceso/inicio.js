@@ -1,5 +1,5 @@
 let serverIp = "localhost"
-let url = "http://" + serverIp + "/Api/ServicioCliente/controlador/index.php";
+let url = "http://" + serverIp + "/Ludico/Api/ServicioCliente/controlador/index.php";
 let email = document.getElementById("email-cliente");
 let pwd = document.getElementById("pwd");
 let pwdOn = document.getElementById("pwd-on");

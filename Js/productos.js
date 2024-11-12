@@ -1,5 +1,5 @@
 let serverIp = "localhost"
-let url = "http://" + serverIp + "/Api/ServicioProductos/controlador/producto.php";
+let url = "http://" + serverIp + "/Ludico/Api/ServicioProductos/controlador/producto.php";
 
 
 const searchInput = document.getElementById("buscador");
