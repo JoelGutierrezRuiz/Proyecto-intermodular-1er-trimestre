@@ -55,7 +55,6 @@ function printAllProducts(products) {
 }
 
 
-
 function search(path, search) {
     let get = "?" + path + "=" + search;
     fetch(url + get).then((mes) => mes.json())
