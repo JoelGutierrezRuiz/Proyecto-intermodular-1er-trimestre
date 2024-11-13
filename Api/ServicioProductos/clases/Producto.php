@@ -20,14 +20,28 @@ class Producto
         $this->categoria = $categoria;
     }
 
+    public function buscarId($link)
+    {
+        try {
+            $query = 'SELECT * FROM productos WHERE idProducto=:idProducto';
+            $result = $link->prepare($query);
+            $result->bindParam(":idProducto", $this->idProducto);
+            $result->execute();
+            return $result->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
+    }
+
     public function buscarNombre($link)
     {
         try {
-            $query = 'SELECT * FROM productos WHERE nombre=:nombre';
+            $query = 'SELECT * FROM productos WHERE lower(nombre) like :nombre';
             $result = $link->prepare($query);
-            $result->bindParam(":nombre", $this->nombre);
+            $nombreBusqueda = strtolower($this->nombre."%");
+            $result->bindParam(':nombre', $nombreBusqueda, PDO::PARAM_STR);
             $result->execute();
-            return $result->fetch(PDO::FETCH_ASSOC);
+            return $result->fetchAll(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
             return $e->getMessage();
         }

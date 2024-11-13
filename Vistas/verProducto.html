@@ -90,7 +90,7 @@
             </div>
 
 
-            <div id="opciones-emergente"class="d-none">
+            <div id="opciones-emergente" class="d-none">
 
 
 
@@ -140,18 +140,26 @@
 
 
         <div class="producto-contenedor row">
-            
-            <div class="producto-imagen col-12  col-md-5 offset-md-1">
-                <img src="../Imágenes/juegos/monopoly.png">
+
+
+
+            <div class="producto-imagen-contenedor col-12  col-md-5 offset-md-1 col-xl-4 offset-xl-2">
+                <img id="producto-imagen" src="../Imágenes/juegos/monopoly.png">
             </div>
 
-            <div class="producto-datos col-12 col-md-5">
-                <h3 class="producto-nombre">Monopoly Classic</h3>
-                <p class="producto-categoria">Familiar</p>
-                <p class="producto-descripcion">El mejor juego del mundo</p>
+            <div class="producto-datos col-12 col-md-5 col-xl-4">
+                <h3 id="producto-nombre">Monopoly Classic</h3>
+                <p id="producto-categoria">Familiar</p>
+                <p id="producto-descripcion">El mejor juego del mundo</p>
+                <p id="producto-precio">€</p>
                 <form>
-                    <input class="producto-cantidad" type="number">
-                    <button class="producto-boton">Añadir</button>
+                    <input id="producto-cantidad" type="number">
+                    <button id="producto-boton">
+                        <b>Añadir al carrito</b>
+                        <span class="material-symbols-rounded">
+                            shopping_cart
+                        </span>
+                    </button>
                 </form>
 
 
@@ -183,7 +191,7 @@
         crossorigin="anonymous"></script>
 
     <script src="../Js/styles/search.js"></script>
-    <script src="../Js/productos.js"></script>
+    <script src="../Js/verProductos.js"></script>
 </body>
 
 </html>

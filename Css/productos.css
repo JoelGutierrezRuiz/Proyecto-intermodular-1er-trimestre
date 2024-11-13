@@ -8,6 +8,10 @@
 .resultado-productos-row{
 
 } 
+
+.resultados-tit{
+    margin-top: 20px;
+}
 .producto{
     position: relative;
     padding: 15px 5px;

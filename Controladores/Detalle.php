@@ -1,5 +1,5 @@
 <?php
 
-echo $_GET["nombre"];
+echo $_GET["idProducto"];
 
 include "../Vistas/verProducto.html";

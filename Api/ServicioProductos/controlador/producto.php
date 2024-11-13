@@ -26,6 +26,15 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
         echo json_encode( $producto->buscarCategoria($db->link));
     }
 
+    if(isset($_GET["idProducto"])){
+        $producto = new Producto($_GET["idProducto"]);
+        //echo var_dump($producto);
+        header("HTTP/1.1 211 OK");
+        echo json_encode( $producto->buscarId($db->link));
+    }
+
+    
+
 }
 
 
