@@ -28,11 +28,11 @@
 
     <div class="container-fluid">
 
-        <div class="promocion-envio row">
+        <div class="promocion-envio row d-none d-md-block">
             <p class="col-12">ENVÍO GRATUITO A PARTIR DE 45$ DE COMPRA</p>
         </div>
 
-        <div class="cabecera-contenedor row">
+        <header class="cabecera-contenedor row">
 
             <div class="logo-contenedor col-6  col-md-3   col-xl-2 offset-xl-2 ">
                 <span id="menu" class="material-symbols-rounded d-sm-block  d-xl-none">
@@ -61,7 +61,11 @@
                 <input id="buscador" class="cabecera-buscador-input d-md-block d-none"
                     placeholder="Encuentra el juego perfecto para tí..." type="text">
 
-                <span class="cabecera-buscador-icono material-symbols-rounded" id="lupa">
+                <span class="cabecera-buscador-icono material-symbols-rounded d-none d-md-block " id="lupa">
+                    search
+                </span>
+                
+                <span class="cabecera-buscador-icono material-symbols-rounded d-md-none" id="abrir-buscador-emergente">
                     search
                 </span>
 
@@ -83,24 +87,27 @@
             </div>
 
 
-            <div class="col-12  buscador-emergente-contenedor d-md-none" id="search-row">
+
+
+
+
+
+
+            <div class="col-12 d-none" id="buscador-emergente-contenedor">
                 <div class="buscador-emergente">
-                    <input id="buscador-emergente" class="cabecera-buscador-input form-control me-2"
+                    <input id="buscador-input-emergente" class="cabecera-buscador-input form-control me-2"
                         placeholder="Encuentra el juego perfecto para ti..." type="text" style="max-width: 600px;">
-                    <span class="cabecera-buscador-icono material-symbols-rounded" id="lupa" style="cursor: pointer;">
+                    <span class="cabecera-buscador-icono material-symbols-rounded" id="lupa-emergente" style="cursor: pointer;">
                         search
                     </span>
+                    
                 </div>
             </div>
 
 
-            <div id="opciones-emergente">
 
-
-
+            <div class="d-none" id="opciones-emergente">
                 <span class="material-symbols-rounded" id="closeOptions">close</span>
-
-
                 <ul class="opciones-lista">
                     <li>Categoriás</li>
                     <select id="categorias">
@@ -111,7 +118,6 @@
                         <option>Infantiles</option>
                         <option>Fiesta</option>
                     </select>
-
                     <li>
                         <p>Validar</p>
                         <a href="Validar.php">
@@ -127,7 +133,16 @@
 
 
 
-        </div>
+
+
+
+
+
+
+
+
+
+        </header>
 
 
         <div class="portada-inicio row">

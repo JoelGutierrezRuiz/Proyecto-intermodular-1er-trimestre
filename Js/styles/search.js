@@ -5,38 +5,52 @@
 const searchButton = document.getElementById("lupa");
 const searchInput = document.getElementById("buscador");
 
-
-searchButton.addEventListener("click",()=>{
-    window.location.href="http://localhost/Ludico/Vistas/productos.html?nombre="+searchInput.value;
+//Tiene que ser una busqueda con json!!!!!!!!!
+searchButton.addEventListener("click", () => {
+    window.location.href = "http://localhost/Ludico/Vistas/productos.html?nombre=" + searchInput.value;
 })
 
 
+const popUpSearchContainer = document.getElementById("buscador-emergente-contenedor")
+const popUpSearchButton = document.getElementById("lupa-emergente");
+const popSearchInput = document.getElementById("buscador-input-emergente");
+const openSearchPopUp= document.getElementById("abrir-buscador-emergente");
+popUpSearchButton.addEventListener("click", () => {
+    window.location.href = "http://localhost/Ludico/Vistas/productos.html?nombre=" + popSearchInput.value;
+})
+openSearchPopUp.addEventListener("click",()=>{
+    if (popUpSearchContainer.classList.contains('d-none')) {
+        popUpSearchContainer.classList.remove('d-none');
+    } else {
+        popUpSearchContainer.classList.add('d-none');
+    }
+})
+
 const options = document.getElementById("categorias");
 
+
+
+
+
+
 optionClicables()
+function optionClicables() {
 
-function optionClicables(){
+    for (let i = 0; i < options.children.length; i++) {
 
-    for(let i=0; i<options.children.length;i++){
-
-        options.children[i].addEventListener("click",(e)=>{
+        options.children[i].addEventListener("click", (e) => {
             const selectValue = e.target.value
-            window.location.href="../Vistas/productos.html?categoria="+selectValue;
+            window.location.href = "../Vistas/productos.html?categoria=" + selectValue;
         })
 
     }
 
 
 }
-document.getElementById('lupa').addEventListener('click', function() {
-    const searchRow = document.getElementById('search-row');
-    if (searchRow.classList.contains('d-none')) {
-        searchRow.classList.remove('d-none');
-    } else {
-        searchRow.classList.add('d-none');
-    }
-});
-document.getElementById('menu').addEventListener('click', function() {
+
+
+
+document.getElementById('menu').addEventListener('click', () => {
     const options = document.getElementById('opciones-emergente');
     if (options.classList.contains('d-none')) {
         options.classList.remove('d-none');
@@ -45,7 +59,7 @@ document.getElementById('menu').addEventListener('click', function() {
     }
 });
 document.getElementById('closeOptions').addEventListener("click",
-    function(){
+    function () {
         const options = document.getElementById('opciones-emergente');
         if (options.classList.contains('d-none')) {
             options.classList.remove('d-none');
@@ -55,12 +69,3 @@ document.getElementById('closeOptions').addEventListener("click",
     }
 );
 
-
-searchButton.addEventListener("click", () => {
-
-    let search = "?nombre="+ searchInput.value;
-    fetch(url + search).then((mes) => mes.json())
-        .then((mes) => printAllProducts(mes))
-        .catch((err) => console.log(err))
-
-});

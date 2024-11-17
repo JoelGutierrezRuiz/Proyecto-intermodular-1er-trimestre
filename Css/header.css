@@ -18,7 +18,7 @@ body{
     background-color: white;
     border-bottom: 1px solid #2B3A67;
     position: sticky;
-    top: 0;
+    top: 0px;
     z-index: 200;
 }
 /*Contenedor del logo y el texto*/
@@ -128,8 +128,8 @@ body{
 
 
 
-.buscador-emergente-contenedor {
-background-color: white;
+#buscador-emergente-contenedor {
+    background-color: white;
 }
 
 .buscador-emergente{
@@ -161,7 +161,6 @@ background-color: white;
     border: 1px solid  #2B3A67;
     border-left: none;
     background-color: white;
-    position: sticky;
 
 }
 
