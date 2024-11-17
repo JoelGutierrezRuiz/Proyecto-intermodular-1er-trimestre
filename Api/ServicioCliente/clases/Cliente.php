@@ -18,33 +18,60 @@ class Cliente{
 
     function validar($link){
         try{
-            $cliente = $this->buscar($link);
+            $query = "SELECT pwd from clientes where email=:email";
+            $result = $link->prepare($query);
+            $result->bindParam(":email",$this->email);
+            $result->execute();
+            $cliente=$result->fetch(PDO::FETCH_ASSOC);
+            //Si se ha encontrado y la contraseña es correcta
             if(isset($cliente['pwd'])){
-                if(password_verify($this->pwd,$cliente['pwd'])){
-                    return $cliente;
-                } 
+                return password_verify($this->pwd,$cliente['pwd']);
             }
-            return false;
+            //En caso contrario
+            else{
+                return false;
+            }
         }
         catch(PDOException $e){
-            return $e->getCode();
+            return $e->getMessage();
             die();
         }
     }
 
+
+    function existe($link){
+        try{
+            $query = "SELECT count(email) as cantidad from clientes where email=:email";
+            $result = $link->prepare($query);
+            $result->bindParam(":email",$this->email);
+            $result->execute();
+            $cantidad = $result->fetch(PDO::FETCH_ASSOC);
+            //devuelva cantidad, al ser email clave primaria solo puede se 0 o 1
+            return $cantidad["cantidad"];
+        }
+        catch(PDOException $e){
+            return $e->getMessage();
+            die();
+        }
+    }
+
+
+
+    //Esta función sirve para recibir la información del usuario sin exponer su hash, solo se puede acceder si el cliente conoce su email.
     function buscar($link){
         try{
-            $query = "SELECT * from clientes where email=:email";
+            $query = "SELECT nombre,direccion from clientes where email=:email";
             $result = $link->prepare($query);
             $result->bindParam(":email",$this->email);
             $result->execute();
             return $result->fetch(PDO::FETCH_ASSOC);
         }
         catch(PDOException $e){
-            return "Error:".$e->getMessage();
+            return $e->getMessage();
             die();
         }
     }
+
 
     static function getAll($link){
         try{
@@ -59,22 +86,20 @@ class Cliente{
         }
     }
     
+
     function insert($link){
         try{
             $pwdHash = password_hash($this->pwd,PASSWORD_DEFAULT);
-            
             $query = "INSERT INTO clientes VALUES (:nombre,:direccion,:email,:pwd,0)";
             $result = $link->prepare($query);
             $result->bindParam(':nombre',$this->nombre);
             $result->bindParam(':direccion',$this->direccion);
             $result->bindParam(':email',$this->email);
             $result->bindParam(':pwd',$pwdHash);
-            if($result->execute()){
-                return $this->buscar($link);
-            }
+            return $result->execute();
         }
         catch(PDOException $e){
-            return "ERROOR: ".$e->getCode();
+            return $e->getMessage();
             die();
         }
     }
@@ -88,7 +113,7 @@ class Cliente{
             return "Usuario con dni:".$this->email." eliminado";
         }
         catch(PDOException $e){
-            return $e->getCode();
+            return $e->getMessage();
             exit();
         }
     }

@@ -18,12 +18,10 @@ async function login(event) {
     "headers": { "Content-Type": "aplication/json" },
     "body": JSON.stringify(cliente)
   };
-
-
   const res = await fetch(url, header);
   user = await res.json();
 
-  console.log(event.target)
+  console.log(user)
 
   if (user) {
     event.target.submit();

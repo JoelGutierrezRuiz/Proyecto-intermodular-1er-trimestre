@@ -3,60 +3,58 @@
 class Carrito
 {
 
-    private $idUnico;
+    private $idCarrito;
     private $email;
     private $idProducto;
     private $cantidad;
 
-    public function __construct($idUnico = "", $email = "", $idProducto = "", $cantidad = "")
+    public function __construct($idCarrito = "", $email = "", $idProducto = "", $cantidad = "")
     {
-        $this->idUnico = $idUnico;
+        $this->idCarrito = $idCarrito;
         $this->email = $email;
         $this->idProducto = $idProducto;
         $this->cantidad = $cantidad;
     }
 
-    public function buscar($link)
+    public function existe($link)
     {
         try {
-            $query = "SELECT * FROM Carritos where idCarrito = :idUnico";
+            $query = "SELECT count(idCarrito) as cantidad FROM Carritos where idCarrito = :idCarrito";
             $result = $link->prepare($query);
-            $result->bindParam(":idUnico", $this->idUnico);
+            $result->bindParam(":idCarrito", $this->idCarrito);
             $result->execute();
-            return $result->fetch(PDO::FETCH_ASSOC);
+            $cantidad = $result->fetch(PDO::FETCH_ASSOC);
+            return $cantidad["cantidad"];
 
         } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
-    public function insertar($link)
+
+
+    public function crearCarrito($link)
     {
-        $carrito = $this->buscar($link);
-        if(!$carrito){
-            echo "no se encuentra";
-            $query = "INSERT INTO Carritos (idCarrito,email) values (:idUnico,:email)";
+        try {
+            $query = "INSERT INTO Carritos (idCarrito,email) values (:idCarrito,:email)";
             $result = $link->prepare($query);
-            $result->bindParam(":idUnico",$this->idUnico);
-            $result->bindParam(":email",$this->email);
+            $result->bindParam(":idCarrito", $this->idCarrito);
+            $result->bindParam(":email", $this->email);
+            return $result->execute();
+        } catch (PDOException $e) {
+            return $e->getMessage();
         }
-        $query= "INSERT INTO CarritoProductos values (:idUnico,:IdProducto,:Cantidad)";
+    }
+
+
+    //Tenemos que utilizar el metodo para modificar las varirables que queremos
+    public function modificar($link){
+        $query = "UPDATE Carritos set email = :email where idCarrito = :idCarrito";
         $result = $link->prepare($query);
-        $result->binParam(":idUnico",$this->idUnico)
-
-
-
+        $result->bindParam(":idCarrito", $this->idCarrito);
+        $result->bindParam(":email", $this->email);
+        return $result->execute();
     }
-
-    public function modificar()
-    {
-        return false;
-    }
-
-
-
-
-
-
-
 
 }
+
+

@@ -14,9 +14,8 @@ async function displayCategory(category){
 
     const products= await fetch(url+category).then((res) => res.json())
 
-    console.log(indexProducts[0].children)
-    for(let i=0; i<5;i++){
-        console.log(products[i])
+    console.log(products)
+    for(let i=0; i<6;i++){
         indexProducts[i].children[0].href="Detalle.php?idProducto="+products[i].idProducto;
         indexProducts[i].children[1].src="../Imágenes/juegos/"+products[i].foto;
         indexProducts[i].children[2].innerHTML=products[i].nombre;

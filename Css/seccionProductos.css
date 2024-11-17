@@ -1,3 +1,8 @@
+
+body{
+    background-color: white;
+}
+
 .seccion-contenedor{
     font-family: "Poppins";
     margin:150px 0 0 0;
@@ -6,6 +11,7 @@
 .seccion-productos{
     border: 2px solid gray;
     border-radius: 25px;
+    background-color: white;
 }
 
 .seccion-productos-imagen{

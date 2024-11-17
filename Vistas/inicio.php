@@ -31,6 +31,7 @@ else{
 <body>
 
   <div class="logo-contenedor">
+    <a href="../Controladores/Principal.php"></a>
     <img class="logo-img" src="../Imágenes/portadas/logo.png">
     <p class="logo-text">lúdico</p>
   </div>
@@ -59,7 +60,7 @@ else{
       
       <p id="login-error" class="col-12  justify-content-center">Usuario o contraseña incorrectos</p>
       
-      <a class="col-12 d-flex justify-content-center" href="registro.php">
+      <a class="col-12 d-flex justify-content-center" href="../Controladores/Registro.php">
         <button>Registrarse</button>
       </a>
 

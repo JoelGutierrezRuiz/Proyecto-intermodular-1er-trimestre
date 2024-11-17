@@ -152,9 +152,15 @@
                 <p id="producto-categoria">Familiar</p>
                 <p id="producto-descripcion">El mejor juego del mundo</p>
                 <p id="producto-precio">€</p>
-                <form>
-                    <input id="producto-cantidad" type="number">
-                    <button id="producto-boton">
+                <form method="POST" onsubmit="addToCart(event)" action="" >
+                    <input name="producto-cantidad" id="producto-cantidad" type="number">
+
+                    <input type="hidden" name="id-producto" id="idProducto" value="">
+                    <input type="hidden" name="nombre-producto" id="nombre-producto" value="">
+                    <input type="hidden" name="precio-producto" id="precio-producto" value="">
+                    <input type="hidden" name="foto-producto" id="foto-producto" value="">
+
+                    <button name="añadir-producto" id="producto-boton">
                         <b>Añadir al carrito</b>
                         <span class="material-symbols-rounded">
                             shopping_cart

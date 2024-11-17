@@ -33,18 +33,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $camposValidacion = ['email','pwd'];
 
 
+    //Si tenemos todos los campos necesarios para registrar procedemos a comprobar si existe el usuario
     if(comprobadorDeCampos($body,$camposDeRegistro)){
-        $post = new Cliente($body["email"],$body['pwd'],$body['nombre'],$body['direccion']);
+        $cliente = new Cliente($body["email"],$body['pwd'],$body['nombre'],$body['direccion']);
+        $found = $cliente->existe($db->link);
+        
+        //Si existe se devuelve un false al cliente
+        if($found){
+            header("HTTP/1.1 200 OK");
+            echo json_encode(false);
+        }
+        //En otro caso se intenta crear el usuario
+        else{
+            $creado = $cliente->insert($db->link);
+            header("HTTP/1.1 200 OK");
+            echo json_encode($creado);
+        }
+    }
+    //En caso de no tener todos los campos de registro pero si tiene los campos de pwd y email (ojo que este mismo servicio se llama desde registro y usuario) y solo contar con dos campos-
+    //se procedera a validar el usuario y dependiendo de la respuesta el cliente hará un u otra cosa.
+    else if(comprobadorDeCampos($body,$camposValidacion) && count($body)==2){
+        $cliente = new Cliente($body['email'],$body['pwd']);
+        $validado = $cliente->validar($db->link);
         header("HTTP/1.1 200 OK");
-        echo json_encode($post->insert($db->link));
+        echo json_encode($validado);
         exit();
     }
-    
-    else if(isset($body,$camposValidacion)){
-        $post = new Cliente($body['email'],$body['pwd']);
-        header("HTTP/1.1 201 OK");
-        echo json_encode($post->validar($db->link));
-        exit();
+    //Si no se ha podido registrar y los campos no son correctos enviamos un false indicando que algo no ha ido bien, (el cliente se encarga de mostrar que es lo que quiere el servidor)
+    else{
+        header("HTTP/1.1 200 OK");
+        echo json_encode(false);
     }
 }
 

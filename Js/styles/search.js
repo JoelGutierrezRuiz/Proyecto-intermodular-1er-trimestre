@@ -1,23 +1,25 @@
 //Esto es mas bien funcionalidad del headear
 
+
+
 const searchButton = document.getElementById("lupa");
 const searchInput = document.getElementById("buscador");
+
 
 searchButton.addEventListener("click",()=>{
     window.location.href="http://localhost/Ludico/Vistas/productos.html?nombre="+searchInput.value;
 })
 
 
-const select = document.getElementById("categorias");
-
+const options = document.getElementById("categorias");
 
 optionClicables()
 
 function optionClicables(){
 
-    for(let i=0; i<select.children.length;i++){
+    for(let i=0; i<options.children.length;i++){
 
-        select.children[i].addEventListener("click",(e)=>{
+        options.children[i].addEventListener("click",(e)=>{
             const selectValue = e.target.value
             window.location.href="../Vistas/productos.html?categoria="+selectValue;
         })

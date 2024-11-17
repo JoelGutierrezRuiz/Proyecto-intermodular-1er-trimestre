@@ -1,3 +1,9 @@
+body{
+    background-color: white;
+}
+
+
+
 .resultados-row{
 
 }
@@ -6,7 +12,6 @@
 }
 
 .resultado-productos-row{
-
 } 
 
 .resultados-tit{
@@ -18,7 +23,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
+.producto:hover{
+    box-shadow: 0 10px 20px rgba(114, 114, 114, 0.699)
 }
 
 .producto a{
@@ -31,7 +39,6 @@
 .producto:hover a{
     display: block;
     position: absolute;
-    border: 2px solid gray;
 }
 
 .producto *{

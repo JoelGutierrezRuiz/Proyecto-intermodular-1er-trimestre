@@ -1,9 +1,7 @@
-<?
+<?php
 include "../config/autocarga.php";
 session_start();
 $db = new Db();
-
-
 
 if (isset($_SESSION['email'])) {
     header("location:Principal.php");
@@ -19,7 +17,6 @@ else if(isset($_POST['email'])) {
     else{
         header("location:../Vistas/inicio.php");
     }
-
 }
 else{
     header("location:../Vistas/inicio.php");

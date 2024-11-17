@@ -17,7 +17,6 @@ async function register(event) {
 
     event.preventDefault();
 
-
     validateForm();
 
     let cliente = {
@@ -32,15 +31,18 @@ async function register(event) {
         "body": JSON.stringify(cliente)
     };
 
-
     const res = await fetch(url, header);
     user = await res.json();
-    console.log(user)
     if (user) {
         event.target.submit();
-        console.log(user)
     }
     else {
+        if(email.value && pwd.value){
+            errorMsg.innerHTML="El usuario ya existe!";
+        }
+        else{
+            errorMsg.innerHTML="Rellena los campos en rojo!"      
+        }
         errorMsg.style.display = "flex";
     }
 
@@ -48,33 +50,28 @@ async function register(event) {
 
 
 function validateForm(){
-
     if(!email.value){
         email.style.border="2px solid red";
     }
     else{
         email.style.border="2px solid gray";  
     }
-
     if(!userName.value){
         userName.style.border="2px solid red";
     }
     else{
         userName.style.border="2px solid gray";  
     }
-
     if(!dir.value){
         dir.style.border="2px solid red";
     }
     else{
         dir.style.border="2px solid gray";  
     }
-
     if(!pwd.value){
         pwd.style.border="2px solid red";
     }
     else{
         pwd.style.border="2px solid gray";  
     }
-
 }

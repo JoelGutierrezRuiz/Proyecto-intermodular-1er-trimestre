@@ -18,6 +18,7 @@
 <body>
 
   <div class="logo-contenedor">
+    <a href="../Controladores/Principal.php"></a>
     <img class="logo-img" src="../Imágenes/portadas/logo.png">
     <p class="logo-text">lúdico</p>
   </div>
@@ -28,10 +29,10 @@
 
 
 
-    <form class="formulario row pt-0 pt-sm-170" onsubmit="register(event)" action="../Controladores/Validar.php" method="POST">
+    <form class="formulario row pt-0 pt-sm-170" onsubmit="register(event)" action="" method="POST">
       <p>Registro</p>
       <p>email</p>
-      <input id="email-cliente" name="email" type="email">
+      <input id="email-cliente" name="email-cliente" type="email">
       <p>Nombre</p>
       <input id="nombre-cliente" name="nombre" type="text">
       <p>Dirección</p>
@@ -45,9 +46,9 @@
 
       <p class="col-12 d-flex justify-content-center">¿Ya tienes una cuenta?</p>
             
-      <p id="login-error" class="col-12  justify-content-center">Rellena los campos en rojo</p>
+      <p id="login-error" class="col-12  justify-content-center">Mensaje de error</p>
       
-      <a class="col-12 d-flex justify-content-center" href="inicio.php">
+      <a class="col-12 d-flex justify-content-center" href="../Controladores/validar.php">
         <button>Iniciar sesión</button>
       </a>
 

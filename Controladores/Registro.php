@@ -1,14 +1,15 @@
-<?
+<?php
 
 session_start();
-
-if($_SESSION['dniCliente'] && $_SESION['nombre']){
+if(isset($_SESSION['email']) && isset($_SESION['nombre'])){
     header("location:../index.php");
 }
-else if($_POST['dniCliente'] && $_POST['nombre']){
-    $_SESION['dniCliente']= $_POST['dniCliente'];
-    $_SESION['nombre'] = $_POST['nombre'];
+else if(isset($_POST['email-cliente'] )&& isset($_POST['nombre'])){
+    $_SESSION['email']= $_POST['email-cliente'];
+    $_SESSION['nombre'] = $_POST['nombre'];
+    header("location:Principal.php");
 }
 else{
-    header("location:../Vistas/registro.php");
+    include "../Vistas/registro.php";
 }
+

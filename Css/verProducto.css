@@ -1,4 +1,8 @@
 
+body{
+    background-color: white;
+}
+
 .producto-contenedor{
     font-family: "POPPINS";
     margin-top: 50px;
