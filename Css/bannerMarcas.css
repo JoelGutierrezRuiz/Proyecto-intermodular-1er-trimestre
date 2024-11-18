@@ -8,6 +8,7 @@
     font-weight: 700;
 }
 .marcas-imgs{
+    height: 100px;
     margin-top: 30px;
     display: flex;
     justify-content: space-evenly;
@@ -16,27 +17,25 @@
 
 .marcas-imgs img{
     cursor: pointer;
-    width: 150px;
-    height: 150px;
+    width: 15%;
+    min-width:50px;
+    padding: 10px;
     border-radius: 100%;
     box-sizing: border-box;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-@media (max-width:1200px){
-
+@media (max-width:770px){
     .marcas-texto{
-        font-size: 15px;
+        font-size: 10px;
+        align-self: flex-end;
+        
     }
 
     .marcas-imgs{
         justify-content: center;
-    }
-
-    .marcas-imgs img{
-        width:50px;
-        height: 50px;
-        margin: 0 10px;
+        object-fit: cover;
+        margin-top: 0px;
     }
 
 }

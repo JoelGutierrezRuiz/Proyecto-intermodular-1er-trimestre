@@ -3,7 +3,7 @@ const searchInput = document.getElementById("buscador");
 
 //Tiene que ser una busqueda con json!!!!!!!!!
 searchButton.addEventListener("click", () => {
-    window.location.href = "http://localhost/Ludico/Vistas/productos.html?nombre=" + searchInput.value;
+    window.location.href = "http://localhost/Ludico/Vistas/productos.php?nombre=" + searchInput.value;
 })
 
 
@@ -14,7 +14,7 @@ const popUpSearchButton = document.getElementById("lupa-emergente");
 const popSearchInput = document.getElementById("buscador-input-emergente");
 const openSearchPopUp= document.getElementById("abrir-buscador-emergente");
 popUpSearchButton.addEventListener("click", () => {
-    window.location.href = "http://localhost/Ludico/Vistas/productos.html?nombre=" + popSearchInput.value;
+    window.location.href = "http://localhost/Ludico/Vistas/productos.php?nombre=" + popSearchInput.value;
 })
 openSearchPopUp.addEventListener("click",()=>{
     if(popUpSearchContainer.classList.contains("d-block")) {

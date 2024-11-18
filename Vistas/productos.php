@@ -13,8 +13,9 @@
 
     <!--Todos los CSS-->
     <link rel="stylesheet" href="../Css/header.css">
+    <link rel="stylesheet" href="../Css/portada.css">
     <link rel="stylesheet" href="../Css/footer.css">
-    <link href="../Css/verProducto.css" rel="stylesheet">
+    <link href="../Css/productos.css" rel="stylesheet">
 
     <!--Fonts y Icons-->
     <link href="../Css/global.css" rel="stylesheet">
@@ -26,38 +27,28 @@
 
 
 
-
-     <?php include "header.php"?>
+        <?php include "header.php"?>
     
 
-        <div class="producto-contenedor row">
 
 
+        <div class="resultados-row row">
 
-            <div class="producto-imagen-contenedor col-12  col-md-5 offset-md-1 col-xl-4 offset-xl-2">
-                <img id="producto-imagen" src="../Imágenes/juegos/monopoly.png">
-            </div>
+            <div class="resultados-contenedor col-10 offset-1 ">
+                <h2 id="resultado-busqueda" class="resultados-tit row ">Familiares</h2>
+                <div id="resultado-productos-row" class="resultado-productos-row row">
 
-            <div class="producto-datos col-12 col-md-5 col-xl-4">
-                <h3 id="producto-nombre">Monopoly Classic</h3>
-                <p id="producto-categoria">Familiar</p>
-                <p id="producto-descripcion">El mejor juego del mundo</p>
-                <p id="producto-precio">€</p>
-                <form method="POST" onsubmit="addToCart(event)" action="" >
-                    <input name="producto-cantidad" id="producto-cantidad" type="number">
+                    <!-- Estructura generada por Js
+                    <div class="producto">
+                        <a href=""></a>
+                        <img src="../Imágenes/juegos/monopoly.png">
+                        <p>Monopoly</p>
+                        <p>25€</p>
+                    </div>
+                    -->
 
-                    <input type="hidden" name="id-producto" id="idProducto" value="">
-                    <input type="hidden" name="nombre-producto" id="nombre-producto" value="">
-                    <input type="hidden" name="precio-producto" id="precio-producto" value="">
-                    <input type="hidden" name="foto-producto" id="foto-producto" value="">
 
-                    <button name="añadir-producto" id="producto-boton">
-                        <b>Añadir al carrito</b>
-                        <span class="material-symbols-rounded">
-                            shopping_cart
-                        </span>
-                    </button>
-                </form>
+                </div>
 
 
             </div>
@@ -67,11 +58,9 @@
 
 
 
-
-
-
     </div>
 
+    
     <?php include "footer.php"?>
 
 
@@ -90,7 +79,7 @@
         crossorigin="anonymous"></script>
 
     <script src="../Js/styles/search.js"></script>
-    <script src="../Js/verProductos.js"></script>
+    <script src="../Js/productos.js"></script>
 </body>
 
 </html>

@@ -6,6 +6,7 @@ body{
 .producto-contenedor{
     font-family: "POPPINS";
     margin-top: 50px;
+    min-height: 500px;
 }
 
 

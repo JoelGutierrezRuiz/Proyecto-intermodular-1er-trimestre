@@ -49,3 +49,19 @@ body{
 .seccion-vermas a{
     color:#F2545B;
 }
+
+
+@media ((min-width:550px) and (max-width:770px)){
+    .seccion-contenedor{
+        margin-top: 90px;
+    }
+    .seccion-titulo{
+        font-size: 20px;
+    }
+}
+
+@media (max-width:550px){
+    .seccion-contenedor{
+        margin-top: 30px;
+    }
+}

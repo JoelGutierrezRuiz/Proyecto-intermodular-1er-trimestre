@@ -1,19 +1,13 @@
 body{
     background-color: white;
+    height: 100vh;
 }
-
 
 
 .resultados-row{
+    min-height: 500px;
 
 }
-.resultados-contenedor{
-
-}
-
-.resultado-productos-row{
-} 
-
 .resultados-tit{
     margin-top: 20px;
 }

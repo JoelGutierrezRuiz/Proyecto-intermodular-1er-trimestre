@@ -5,24 +5,24 @@ body{
 }
 
 .carrito-tit{
-
+    height: 50px;
     font-size: 35px;
 }
 
 .carrito-row{
-    margin-top: 100px;
+
+    min-height: 500px;
 }
 
 .carrito-producto{
-    padding:30px 20px;
+    padding:25px 20px;
     border-top: 1px solid gray;
-    justify-content: space-between;
-    align-items: center;
     display: flex;
+    justify-content: space-between;
 }
 
 .carrito-producto-crud *{
-    margin-top: 5px;
+
 }
 
 .carrito-cantidades{
@@ -34,7 +34,7 @@ body{
 }
 
 .carrito-producto-img{
-    height:60px;
+    height:80px;
     object-fit: contain;
 }
 
@@ -42,11 +42,10 @@ body{
     flex-grow: 1;
     text-align: center;
     margin: 0;
-    height: 100%;
+
 }
 
 .carrito-producto-total{
-    height: 100%;
 }
 
 .carrito-producto button{
@@ -65,10 +64,12 @@ body{
 }
 
 #sin-productos{
+
     display: none;
 }
 #con-productos{
     display: flex;
+    align-items: center;
 }
 
 #subtotal{

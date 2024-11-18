@@ -12,4 +12,4 @@ if(isset($_SESSION["idUnico"])){
 else{
     //echo "sin id";
 }
-include "../Vistas/principal.html";
+include "../Vistas/principal.php";

@@ -30,102 +30,7 @@
     <div class="container-fluid">
 
 
-        <div class="promocion-envio row">
-            <p class="col-12">ENVÍO GRATUITO A PARTIR DE 45$ DE COMPRA</p>
-        </div>
-
-        <div class="cabecera-contenedor row">
-
-            <div class="logo-contenedor col-6  col-md-3   col-xl-2 offset-xl-2 ">
-                <span id="menu" class="material-symbols-rounded d-sm-block  d-xl-none">
-                    menu
-                </span>
-
-
-                <h1 class="logo-name">
-                    <a href="../Controladores/Principal.php">
-                        Lúdico
-                    </a>
-                </h1>
-
-                <a href="../Controladores/Principal.php">
-                    <img class="logo-img  tamaño-logo-movil" src="../Imágenes/portadas/logo.png">
-                </a>
-
-
-            </div>
-
-
-            <p class="listaCategorias d-none d-xl-block col-2 col-xl-1">Categorías</p>
-
-            <div class="cabecera-buscador-contenedor col-6 col-md-9 col-xl-7">
-
-                <input id="buscador" class="cabecera-buscador-input d-md-block d-none"
-                    placeholder="Encuentra el juego perfecto para tí..." type="text">
-
-                <span class="cabecera-buscador-icono material-symbols-rounded" id="lupa">
-                    search
-                </span>
-
-                <span id="login" class="material-symbols-rounded d-xl-block d-none">
-                    <a href="Validar.php">chess_pawn</a>
-                </span>
-
-                <span class="material-symbols-rounded">
-                    shopping_cart
-                </span>
-
-                <span class="material-symbols-rounded d-xl-block  d-none">
-                    language
-                </span>
-
-            </div>
-
-            <div class="col-12 d-none  buscador-emergente-contenedor d-md-none" id="search-row">
-                <div class="buscador-emergente">
-                    <input id="buscador-emergente" class="cabecera-buscador-input form-control me-2"
-                        placeholder="Encuentra el juego perfecto para ti..." type="text" style="max-width: 600px;">
-                    <span class="cabecera-buscador-icono material-symbols-rounded" id="lupa" style="cursor: pointer;">
-                        search
-                    </span>
-                </div>
-            </div>
-
-
-            <div class="" id="opciones-emergente">
-
-
-
-                <span class="material-symbols-rounded" id="closeOptions">close</span>
-
-
-                <ul class="opciones-lista">
-                    <li>Categoriás</li>
-                    <select id="categorias">
-                        <option> De risa</option>
-                        <option>Familiar</option>
-                        <option>Infantiles</option>
-                        <option>Memoria y atención</option>
-                        <option>Infantiles</option>
-                        <option>Fiesta</option>
-                    </select>
-
-                    <li>
-                        <p>Validar</p>
-                        <a href="Validar.php">
-                            <button>Mi cuenta</button>
-                        </a>
-                    </li>
-
-                    <hr>
-                </ul>
-
-
-            </div>
-
-
-
-        </div>
+        <?php include "header.php" ?>
 
 
         <div id="contenedorProductos" class="carrito-row row">
@@ -181,7 +86,7 @@
             </form>
         </div>
 
-
+        <?php include "footer.php" ?>
     </div>
 
     <script type="text/javascript">
@@ -236,8 +141,8 @@
 
 
 
-            for(let i=0;i<productsList.length;i++){
-                let putUrl="http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
+            for (let i = 0; i < productsList.length; i++) {
+                let putUrl = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
 
                 let putProduct = {
                     "idCarrito": idUnico,
@@ -253,13 +158,13 @@
 
                 console.log(putProduct);
 
-                putPromise.push(fetch(putUrl,header));
+                putPromise.push(fetch(putUrl, header));
 
-    
+
             }
 
-            
-            let fetchAll =await Promise.all(putPromise);
+
+            let fetchAll = await Promise.all(putPromise);
             init();
 
 
@@ -494,6 +399,10 @@
         }
 
     </script>
+
+
+
+
 
 
 
