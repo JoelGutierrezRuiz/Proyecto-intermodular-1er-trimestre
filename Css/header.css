@@ -20,30 +20,69 @@ body{
     position: sticky;
     top: 0px;
     z-index: 200;
+    font-family: "POPPINS";
 }
 /*Contenedor del logo y el texto*/
 .logo-contenedor {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    position: relative;
 }
+/*Todos los enlaces de el logo (texto y imágen)*/
+.logo-contenedor a{
+    display: flex;
+    align-items: center;
+    color: #2B3A67;
+    text-decoration: none;
+    flex-grow: 1;
+}
+/*Texto de el logo mas cerca de la imágen*/
+.logo-contenedor a:first-of-type{
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
 .logo-name{
-    font-size: 30px;
-    line-height: 40px;
-    padding-top: 10px;
-    margin:0 10px 0 0;
+    margin: 0;
+    font-size: 25px;
     font-family: "Luckiest Guy";
 }
 .logo-img {
-    height: 40px;
+    height: 30px;
     object-fit: contain;
 }
 
 /*Botón de categorías en el header*/
 /*El margin de bootstrap impedia centrarlo desde el padre row*/
-.listaCategorias{
-    margin: 0;
-    text-align: center;
+#boton-categorias{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: #2B3A67;
+}
+
+/*Deplegable de categorías en XL*/
+#lista-categorias{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+#lista-categorias ol{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#lista-categorias a{
+    font-size: 15px;
+    color: #2B3A67;
+    text-decoration: none;
 }
 
 /*Buscador input*/
@@ -52,14 +91,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
+
+/*Reestablecemos los colores de los iconos */
+.cabecera-buscador-contenedor a{
+    text-decoration: none;
+    color: #2B3A67;
+}
+/*separación de los iconos de el buscador*/
 .cabecera-buscador-contenedor span{
     margin-right: 10px;
 }
 
-
-
-
+/*Estilo de el input para buscar*/
 .cabecera-buscador-input {
     width: 400px;
     height: 40px;
@@ -68,7 +113,7 @@ body{
     border: 2px solid #2B3A67;
     margin-right: 10px;
 }
-
+/*Ajueste para centrar*/
 .cabecera-buscador-icono{
     margin: 0;
 }
@@ -90,27 +135,36 @@ body{
     width: 30px;
     color:#2B3A67;
 
+    /*Transiocion para los iconos con propiedad de relleno*/
     font-variation-settings: 
-        'FILL' 0, /* Sin relleno */
+        'FILL' 0, 
         'wght' 400,
         'GRAD' 0,
         'opsz' 24;
     transition: font-variation-settings 0.3s, color 0.3s; /* Transición suave */
 }
 
+/*Efecto actuado al hacer un hover*/
 .material-symbols-rounded:hover {
     font-variation-settings: 
-        'FILL' 1, /* Con relleno al pasar el mouse */
+        'FILL' 1, 
         'wght' 400,
         'GRAD' 0,
         'opsz' 24;
-    color: #2B3A67; /* Cambia si es necesario */
+    color: #2B3A67; 
 }
 
+
+
+/*Media querys para tamaños pequeños*/
 @media (max-width:1200px){
+
+    /*He añadido clases para aplicar a las imagenes de el header en este caso solo la del logo*/
     .tamaño-logo-movil{
         height: 30px;
     }
+
+
     .logo-contenedor>h1{
         font-size:20px;
         line-height:30px;
@@ -126,10 +180,11 @@ body{
 }
 
 
+/*Menu de opciones para pantallas pequeñas*/
 
-
-#buscador-emergente-contenedor {
+#buscador-emergente-contenedor{
     background-color: white;
+    width: 100%;
 }
 
 .buscador-emergente{
@@ -139,12 +194,11 @@ body{
     justify-content: center;
 }
 
-.buscador-emergente .cabecera-buscador-input{
-    width:100%;
+.buscador-emergente input{
+    width: 70%;
 }
 
-
-
+/*columna para el boton de cerar la pestaña (gestionado en JS)*/
 #closeOptions{
     display: flex;
     align-items: center;
@@ -152,6 +206,7 @@ body{
     width: 100%;
 }
 
+/*columna debajo de cerrar que cuenta con todas las opciones del menú*/
 #opciones-emergente{
     padding:20px 20px 0 20px;
     display: flex;
@@ -165,26 +220,13 @@ body{
 }
 
 
-.opciones{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    margin: 10px 0;
-    width: 100%;
-}
 
-.opciones-lista{
-    padding: 0;
-    margin: 10px 0;
-    width: 100%;
-    list-style: none;
-}
-
-.opciones-lista li{
+.opciones-cat li{
     margin: 10px 0;
 }
 
-.opciones-lista button{
+/*Estilo del boton validar*/
+.opciones-cat button{
     width: 100%;
     height:40px;
     border: none;
@@ -193,7 +235,8 @@ body{
     color: white;
 }
 
-.opciones-lista select{
+/*estilo para el select de las categorías*/
+.opciones-cat select{
     text-align: center;
     cursor: pointer;
     border-radius: 2px;
@@ -204,7 +247,3 @@ body{
     color: white;
 }
 
-
-.opciones-info{
-    background-color: blue;
-}
