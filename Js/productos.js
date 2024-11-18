@@ -12,10 +12,12 @@ if (params.get("categoria")) {
     titleResult.innerHTML = params.get("categoria");
 
 }
-if (params.get("nombre")) {
+else if(params.get("nombre")) {
     search("nombre", params.get("nombre"));
-    titleResult.innerHTML = "Resultados para " + params.get("nombre");
-
+    titleResult.innerHTML = "Resultados para " +'"' +params.get("nombre") +'"';
+}
+else{
+    titleResult.innerHTML = "Sin resultados";
 }
 
 
@@ -54,10 +56,18 @@ function printAllProducts(products) {
     }
 }
 
-
 function search(path, search) {
     let get = "?" + path + "=" + search;
     fetch(url + get).then((mes) => mes.json())
-        .then((mes) => printAllProducts(mes))
+        .then((mes) => {
+            if(mes.length==0){
+                titleResult.innerHTML+="<br>Sin resultados";
+            }
+            else{
+                titleResult.innerHTML+="  ("+mes.length+")";
+            }
+
+            printAllProducts(mes);
+        })
         .catch((err) => console.log(err))
 }

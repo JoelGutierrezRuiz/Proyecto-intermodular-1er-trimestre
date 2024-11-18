@@ -1,6 +1,6 @@
 <!--Vista envío-->
 <div class="promocion-envio row d-none d-md-block">
-    <p class="col-12">ENVÍO GRATUITO A PARTIR DE 45$ DE COMPRA</p>
+    <p class="col-12">ENVÍO GRATUITO A PARTIR DE 45€ DE COMPRA</p>
 </div>
 <!--Vista header-->
 <header class="cabecera-contenedor row">

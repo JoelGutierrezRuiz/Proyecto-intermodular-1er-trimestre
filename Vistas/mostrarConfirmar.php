@@ -69,9 +69,15 @@
 
                 <td></td>
 
-                <td></td>
+                <td>+5€ envío</td>
 
-                <td><b><?php echo $totalPedido." €" ?></b></td>
+                <td>
+                    <b>
+                        <?php 
+                            echo 5+$totalPedido." €"
+                        ?>
+                    </b>
+                </td>
             </tr>
 
             <tr class="pago-pedido">
