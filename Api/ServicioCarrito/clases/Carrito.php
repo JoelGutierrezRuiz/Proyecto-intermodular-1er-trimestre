@@ -18,36 +18,28 @@ class Carrito
 
     public function existe($link)
     {
-        try {
-            $query = "SELECT count(idCarrito) as cantidad FROM Carritos where idCarrito = :idCarrito";
-            $result = $link->prepare($query);
-            $result->bindParam(":idCarrito", $this->idCarrito);
-            $result->execute();
-            $cantidad = $result->fetch(PDO::FETCH_ASSOC);
-            return $cantidad["cantidad"];
-
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
+        $query = "SELECT count(idCarrito) as cantidad FROM carritos where idCarrito = :idCarrito";
+        $result = $link->prepare($query);
+        $result->bindParam(":idCarrito", $this->idCarrito);
+        $result->execute();
+        $cantidad = $result->fetch(PDO::FETCH_ASSOC);
+        return $cantidad["cantidad"];
     }
 
 
     public function crearCarrito($link)
     {
-        try {
-            $query = "INSERT INTO Carritos (idCarrito,email) values (:idCarrito,:email)";
-            $result = $link->prepare($query);
-            $result->bindParam(":idCarrito", $this->idCarrito);
-            $result->bindParam(":email", $this->email);
-            return $result->execute();
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
+        $query = "INSERT INTO carritos (idCarrito,email) values (:idCarrito,:email)";
+        $result = $link->prepare($query);
+        $result->bindParam(":idCarrito", $this->idCarrito);
+        $result->bindParam(":email", $this->email);
+        return $result->execute();
     }
 
 
     //Tenemos que utilizar el metodo para modificar las varirables que queremos
-    public function modificar($link){
+    public function modificar($link)
+    {
         $query = "UPDATE Carritos set email = :email where idCarrito = :idCarrito";
         $result = $link->prepare($query);
         $result->bindParam(":idCarrito", $this->idCarrito);

@@ -8,9 +8,12 @@ header("Access-Control-Allow-Headers: *");
 $db = new Db();
 $body = json_decode(file_get_contents("php://input"), true);
 
-
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-
+    if (isset($_GET['idCarrito'])) {
+        header("HTTP/1.1 211 OK");
+        $producto = new ProductosCarrito($_GET['idCarrito']);
+        echo json_encode($producto->buscarTodos($db->link));
+    }
 }
 
 

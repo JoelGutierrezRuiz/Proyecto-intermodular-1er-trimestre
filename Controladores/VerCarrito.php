@@ -6,7 +6,7 @@ if(!isset($_SESSION['idUnico'])) {
 }
 
 if(isset($_POST["confirmar"]) && isset($_SESSION['email'])) {
-    echo "podemos comprar";
+    include  "Confirmar.php";
 }
 else if(isset($_POST["confirmar"]) && !isset($_SESSION["email"])){
 

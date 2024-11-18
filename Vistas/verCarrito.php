@@ -23,10 +23,6 @@
 
 <body>
 
-
-
-
-
     <div class="container-fluid">
 
 
@@ -67,13 +63,9 @@
 
                 <p class="carrito-producto-total">16€</p>
 
-
             </div>
-
--->
-
-
-
+            
+            -->
         </div>
 
         <hr>
@@ -96,7 +88,6 @@
         let totalPrice = 0;
         let productsList;
         const refreshButton = document.getElementById("actualizar");
-
         let idUnico = <?php
         if (isset($_SESSION["idUnico"])) {
             echo json_encode($_SESSION["idUnico"]);
@@ -114,67 +105,18 @@
             echo json_encode("");
         }
         ?>;
-
-
-
         init();
 
         async function init() {
-
+            //Tenemos que esperar 
             await createCart();
             if (producto) {
                 await addProduct(idUnico, producto.id, producto.cantidad);
             }
             productsList = await productList();
+            await printProductos(productsList);
             refreshButton.addEventListener("click", refreshPage);
-            printProductos(productsList);
-
         }
-
-
-        async function refreshPage() {
-
-            let cantidades = document.getElementsByClassName("cantidades");
-
-            let putPromise = [];
-
-
-
-
-            for (let i = 0; i < productsList.length; i++) {
-                let putUrl = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
-
-                let putProduct = {
-                    "idCarrito": idUnico,
-                    "idProducto": productsList[i].idProducto,
-                    "cantidad": cantidades[i].value
-                }
-
-                let header = {
-                    "method": "PUT",
-                    "headers": { "Content-Type": "aplication/json" },
-                    "body": JSON.stringify(putProduct)
-                }
-
-                console.log(putProduct);
-
-                putPromise.push(fetch(putUrl, header));
-
-
-            }
-
-
-            let fetchAll = await Promise.all(putPromise);
-            init();
-
-
-
-        }
-
-
-
-
-
         async function createCart() {
             let url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/carrito.php";
             let body = {
@@ -192,7 +134,6 @@
             return result;
         }
         async function addProduct(idCarrito, idProd, cantidad) {
-
             let url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
             let body = {
                 "idCarrito": idCarrito,
@@ -209,6 +150,31 @@
             let result = await response.json();
             <?php unset($_SESSION["producto"]) ?>
         }
+        async function refreshPage() {
+
+            let cantidades = document.getElementsByClassName("cantidades");
+            let putPromise = [];
+
+            for (let i = 0; i < productsList.length; i++) {
+                let putUrl = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
+
+                let putProduct = {
+                    "idCarrito": idUnico,
+                    "idProducto": productsList[i].idProducto,
+                    "cantidad": cantidades[i].value
+                }
+
+                let header = {
+                    "method": "PUT",
+                    "headers": { "Content-Type": "aplication/json" },
+                    "body": JSON.stringify(putProduct)
+                }
+
+                putPromise.push(fetch(putUrl, header));
+            }
+
+            let fetchAll = await Promise.all(putPromise);
+        }
         async function productList() {
 
             let url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
@@ -223,10 +189,15 @@
             };
             let response = await fetch(url, header);
             let result = await response.json();
-            console.log(result);
+            cartPopUp.innerHTML = result.length
+            if (cartPopUp.innerHTML > 0) {
+                cartPopUp.style.display = "flex"
+            }
+            else {
+                cartPopUp.style.display = "none"
+            }
             return result;
         }
-
         function createProduct(producto) {
 
 
@@ -257,53 +228,69 @@
 
             productoCrud.appendChild(precioProducto);
 
-            // Crear y agregar el enlace para eliminar el producto
-            const eliminarProducto = document.createElement('a');
-            eliminarProducto.href = "# ";
-            eliminarProducto.classList.add('eliminar-producto');
-            eliminarProducto.textContent = "Eliminar producto";
-
-
-
-
-            eliminarProducto.addEventListener('click', async function () {
-                carritoProducto.remove();
-                const url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
-                const body = {
-                    idCarrito: idUnico,
-                    idProducto: producto.idProducto
-                };
-
-                // Realizar la solicitud DELETE
-                try {
-                    const response = await fetch(url, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(body)  // Convertimos el objeto a JSON
-                    });
-
-                    // Procesar la respuesta (opcional)
-                    if (response.ok) {
-                        init();
-                        console.log("Producto eliminado con éxito.");
-                    } else {
-                        console.error("Error al eliminar el producto:", response.statusText);
-                    }
-                } catch (error) {
-                    console.error("Error al realizar la solicitud DELETE:", error);
-                }
-            })
-
-
-            productoCrud.appendChild(eliminarProducto);
-
             const quantity = document.createElement("input");
             quantity.type = "number";
             quantity.classList.add("cantidades");
             quantity.value = producto.cantidad;
             productoCrud.appendChild(quantity);
+
+            quantity.addEventListener("change", (e) => {
+                if (quantity.value < 1) {
+                    quantity.value = 1;
+                }
+                if (quantity.value > 1000) {
+                    quantity.value = 999;
+                }
+                totalProducto.innerHTML = Math.round(producto.precio * quantity.value) + "€";
+            })
+
+            // Crear y agregar el enlace para eliminar el producto
+            const eliminarProducto = document.createElement('a');
+            eliminarProducto.classList.add('eliminar-producto');
+            eliminarProducto.textContent = "Eliminar producto";
+
+
+            eliminarProducto.addEventListener('click', () => {
+
+                //Removing the father
+                carritoProducto.remove();
+
+                //Delete fetch prep
+                const url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
+                const body = {
+                    idCarrito: idUnico,
+                    idProducto: producto.idProducto
+                };
+                const header = {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)  // Convertimos el objeto a JSON
+                }
+                // Fetching
+
+                const response = fetch(url, header)
+                    .then((res) => res.json())
+                    .then((res) => {
+                        if (res) {
+                            console.log("producto eliminado correctamente")
+                            cartPopUp.innerHTML = parseInt(cartPopUp.innerHTML) - 1;
+                            if (cartPopUp.innerHTML > 0) {
+                                cartPopUp.style.display = "flex";
+                            }
+                            else {
+                                cartPopUp.style.display = "none";
+                            }
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("No se ha podido eliminar el producto")
+                    });
+            })
+
+            productoCrud.appendChild(eliminarProducto);
+
 
 
 
@@ -313,39 +300,13 @@
             totalProducto.textContent = Math.round(producto.total) + "€";
 
 
-
-
-
-            quantity.addEventListener("change", (e) => {
-
-                if (quantity.value < 1) {
-                    quantity.value = 1;
-                }
-                if (quantity.value > 1000) {
-                    quantity.value = 999;
-                }
-                totalProducto.innerHTML = Math.round(producto.precio * quantity.value) + "€";
-
-            })
-
-
-
-
-
-
             // Agregar el contenedor de acciones (CRUD) y el total al contenedor principal
             carritoProducto.appendChild(productoCrud);
             carritoProducto.appendChild(totalProducto);
 
-
-
-
-
-
             // Devolver el elemento creado
             return carritoProducto;
         }
-
         async function printProductos(productos) {
 
             let cartPrice = document.getElementById("totalCarrito");
@@ -389,8 +350,6 @@
             cartPrice.innerHTML = Math.round(totalPrice) + "€";
 
         }
-
-
         function clearCart() {
             const htmlProducts = document.getElementsByClassName("carrito-producto");
             for (let i = 0; i < htmlProducts.length; i++) {

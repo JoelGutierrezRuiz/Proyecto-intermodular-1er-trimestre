@@ -247,3 +247,15 @@ body{
     color: white;
 }
 
+#cantidad-carrito{
+    display: none;
+    align-content: center;
+    justify-content: center;
+    font-size: 15px;
+    color: white;
+    position: absolute;
+    width:20px;
+    height: 20px;
+    background-color: #F2545B;
+    border-radius: 100px;
+}

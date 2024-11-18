@@ -1,53 +1,36 @@
-
 body{
     background-color: white;
     font-family: "POPPINS";
 }
-
 .carrito-tit{
     height: 50px;
     font-size: 35px;
 }
-
 .carrito-row{
 
     min-height: 500px;
 }
-
 .carrito-producto{
     padding:25px 20px;
     border-top: 1px solid gray;
     display: flex;
     justify-content: space-between;
 }
-
-.carrito-producto-crud *{
-
-}
-
 .carrito-cantidades{
     width:120px;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
-
 .carrito-producto-img{
     height:80px;
     object-fit: contain;
 }
-
 .carrito-producto-cantidad{
     flex-grow: 1;
     text-align: center;
     margin: 0;
-
 }
-
-.carrito-producto-total{
-}
-
 .carrito-producto button{
     width: 40px;
     height: 35px;
@@ -58,11 +41,9 @@ body{
 .carrito-producto-añadir{
     background-color: #2B3A67;
 }
-
 .carrito-producto-quitar{
     background-color:  #F2545B;
 }
-
 #sin-productos{
 
     display: none;
@@ -71,7 +52,47 @@ body{
     display: flex;
     align-items: center;
 }
-
 #subtotal{
     display: flex;
+    flex-direction: column;
+
+}
+
+#subtotal button, #subtotal form button{
+    margin-top: 10px;
+    max-width:200px;
+    border-radius: 5px;
+    padding: 5px;
+    border:2px solid #f5f5f5;
+    color: white;
+}
+
+/*Corregir con otros selectores*/
+
+#subtotal button{
+    background-color: #2B3A67;
+}
+#subtotal form button{
+    background-color: #F2545B;
+}
+
+
+#subtotal form{
+    margin-top: 10px;
+    flex-direction: column;
+    display: flex;
+}
+
+
+.carrito-producto-crud{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.cantidades{
+    margin-bottom:20px;
+    width: 50%;
+    border-radius: 5px;
+    outline: none;
 }

@@ -24,19 +24,14 @@
 
     <div class="container-fluid">
 
-
-
-
      <?php include "header.php"?>
     
-
         <div class="producto-contenedor row">
-
-
 
             <div class="producto-imagen-contenedor col-12  col-md-5 offset-md-1 col-xl-4 offset-xl-2">
                 <img id="producto-imagen" src="../Imágenes/juegos/monopoly.png">
             </div>
+
 
             <div class="producto-datos col-12 col-md-5 col-xl-4">
                 <h3 id="producto-nombre">Monopoly Classic</h3>
@@ -45,7 +40,6 @@
                 <p id="producto-precio">€</p>
                 <form method="POST" onsubmit="addToCart(event)" action="" >
                     <input name="producto-cantidad" id="producto-cantidad" type="number">
-
                     <input type="hidden" name="id-producto" id="idProducto" value="">
                     <input type="hidden" name="nombre-producto" id="nombre-producto" value="">
                     <input type="hidden" name="precio-producto" id="precio-producto" value="">
