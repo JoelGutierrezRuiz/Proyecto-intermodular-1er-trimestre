@@ -38,14 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Si tenemos todos los campos necesarios para registrar, procedemos a comprobar si existe el usuario
-        if (comprobadorDeCampos($body, $camposDeRegistro)) {
+        if (comprobadorDeCampos(array: $body, $camposDeRegistro)) {
             $cliente = new Cliente($body["email"], $body['pwd'], $body['nombre'], $body['direccion']);
             $found = $cliente->existe($db->link);
 
             // Si existe, se devuelve un false al cliente
             if ($found) {
                 header("HTTP/1.1 200 OK");
-                echo json_encode(false);
+                echo json_encode(value: false);
             } else {
                 // Si no existe, intentar crear el usuario
                 $db->link->beginTransaction(); // Iniciar transacción

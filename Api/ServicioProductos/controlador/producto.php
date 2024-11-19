@@ -9,7 +9,6 @@ $db = new Db();
 $body = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-
     try {
         if (isset($_GET["nombre"])) {
             $producto = new Producto("", $_GET["nombre"]);
@@ -80,5 +79,12 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
-    return false;
+
+
+    if(empty($body["comprobante"])){
+        echo "esta vacio";
+    }
+    else{
+        echo "no esta vacio";
+    }
 }
