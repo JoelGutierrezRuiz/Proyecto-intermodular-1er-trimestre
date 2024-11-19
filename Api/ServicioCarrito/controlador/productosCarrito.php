@@ -8,26 +8,6 @@ header("Access-Control-Allow-Headers: *");
 $db = new Db();
 $body = json_decode(file_get_contents("php://input"), true);
 
-function iniciarTransaccion() {
-    global $db;
-    $db->link->beginTransaction();
-}
-
-function confirmarTransaccion() {
-    global $db;
-    $db->link->commit();
-}
-
-function revertirTransaccion() {
-    global $db;
-    $db->link->rollBack();
-}
-
-function responderConError($error) {
-    header("HTTP/1.1 500 Internal Server Error");
-    echo json_encode(["error" => $error]);
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try {
         if (isset($_GET['idCarrito'])) {
@@ -36,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             echo json_encode($producto->buscarTodos($db->link));
         }
     } catch (Exception $e) {
-        responderConError($e->getMessage());
+        header("HTTP/1.1 500 Internal Server Error");
+        echo json_encode(["error" => $e->getMessage()]);
     }
 }
 
@@ -47,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $producto = new ProductosCarrito($body["idCarrito"], "", $body["idProducto"], $body["cantidad"]);
             $existe = $producto->existe($db->link);
 
-            iniciarTransaccion();
+            $db->link->beginTransaction();
             header("HTTP/1.1 200 OK");
 
             if (!$existe) {
@@ -55,15 +36,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo json_encode($producto->añadir($db->link));
             }
-            confirmarTransaccion();
+
+            $db->link->commit();
         } else if (isset($body['idCarrito'])) {
             header("HTTP/1.1 211 OK");
             $producto = new ProductosCarrito($body['idCarrito']);
             echo json_encode($producto->buscarTodos($db->link));
         }
     } catch (Exception $e) {
-        revertirTransaccion();
-        responderConError($e->getMessage());
+        $db->link->rollBack();
+        header("HTTP/1.1 500 Internal Server Error");
+        echo json_encode(["error" => $e->getMessage()]);
     }
 }
 
@@ -73,14 +56,15 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
         if (comprobadorDeCampos($body, $camposIngresarProd)) {
             $producto = new ProductosCarrito($body["idCarrito"], "", $body["idProducto"], $body["cantidad"]);
 
-            iniciarTransaccion();
+            $db->link->beginTransaction();
             header("HTTP/1.1 200 OK");
             echo json_encode($producto->modificar($db->link));
-            confirmarTransaccion();
+            $db->link->commit();
         }
     } catch (Exception $e) {
-        revertirTransaccion();
-        responderConError($e->getMessage());
+        $db->link->rollBack();
+        header("HTTP/1.1 500 Internal Server Error");
+        echo json_encode(["error" => $e->getMessage()]);
     }
 }
 
@@ -91,14 +75,15 @@ if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
             header("HTTP/1.1 211 OK");
             $producto = new ProductosCarrito($body["idCarrito"], "", $body["idProducto"]);
 
-            iniciarTransaccion();
+            $db->link->beginTransaction();
             echo json_encode($producto->eliminar($db->link));
-            confirmarTransaccion();
+            $db->link->commit();
         } else {
             echo json_encode(false);
         }
     } catch (Exception $e) {
-        revertirTransaccion();
-        responderConError($e->getMessage());
+        $db->link->rollBack();
+        header("HTTP/1.1 500 Internal Server Error");
+        echo json_encode(["error" => $e->getMessage()]);
     }
 }
