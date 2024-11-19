@@ -34,8 +34,8 @@
             search
         </span>
 
-        <span id="login" class="material-symbols-rounded d-xl-block d-none">
-            <a href="../Controladores/Validar.php">chess_pawn</a>
+        <span id="login" id="abrir-usuario-emergente"class="material-symbols-rounded d-xl-block d-none">
+            chess_pawn
         </span>
 
         <span class="material-symbols-rounded">
@@ -104,6 +104,13 @@
     </div>
 
 
+
+
+
+
+    
+
+
     <div class="d-none" id="lista-categorias">
         <ol>
             <b><a href="../Vistas/productos.php?categoria=familiar">Familiar</a></b>
@@ -126,15 +133,14 @@
             <select id="categorias">
                 <option> De risa</option>
                 <option>Familiar</option>
-                <option>Infantiles</option>
                 <option>Memoria y atención</option>
-                <option>Infantiles</option>
+                <option>Infantil</option>
                 <option>Fiesta</option>
             </select>
             <li>
-                <p>Validar</p>
-                <a href="../Controladores/Validar.php">
-                    <button>Mi cuenta</button>
+                <p><?php if(isset($_SESSION["email"])){echo $_SESSION["nombre"];} else{echo "Validar";} ?></p>
+                <a href="<?php if(isset($_SESSION["email"])){ echo "../Controladores/CerrarSesion.php";} else{echo "../Controladores/Validar.php";} ?>">
+                    <button> <?php if(isset($_SESSION["email"])){echo "Cerrar Sesión";} else{echo "Iniciar sesión";} ?> </button>
                 </a>
             </li>
 

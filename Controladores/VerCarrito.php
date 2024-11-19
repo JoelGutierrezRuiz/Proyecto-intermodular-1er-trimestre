@@ -6,11 +6,9 @@ if(!isset($_SESSION['idUnico'])) {
 }
 
 if(isset($_POST["confirmar"]) && isset($_SESSION['email'])) {
-    include  "Confirmar.php";
+    header("location:Confirmar.php");
 }
 else if(isset($_POST["confirmar"]) && !isset($_SESSION["email"])){
-
-    $mensaje = "Tienes que iniciar sesión antes de comprar";
     header("location:Redireccionamiento.php");
 }
 else{

@@ -45,6 +45,16 @@ class Carrito
         return $result->execute();
     }
 
+    
+    public function eliminar($link)
+    {
+        $query = "DELETE FROM carritos where idCarrito = :idCarrito";
+        $result = $link->prepare($query);
+        $result->bindParam(":idCarrito", $this->idCarrito);
+        return $result->execute();
+    }
+
+
 }
 
 

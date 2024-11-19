@@ -54,7 +54,7 @@ function optionClicables() {
 
         options.children[i].addEventListener("click", (e) => {
             const selectValue = e.target.value
-            window.location.href = "../Vistas/productos.html?categoria=" + selectValue;
+            window.location.href = "../Vistas/productos.php?categoria=" +selectValue;
         })
 
     }

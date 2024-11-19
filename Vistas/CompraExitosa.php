@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,12 +17,50 @@
 
 <body>
 
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Well done!</h4>
-        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer
-            so that you can see how spacing within an alert works with this kind of content.</p>
-        <hr>
-        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+    <script>
+
+        let idUnico = <?php
+        if (isset($_SESSION["idUnico"])) {
+            echo json_encode($_SESSION["idUnico"]);
+        } else {
+            echo json_encode("");
+        }
+        ?>;
+
+
+
+        let url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/carrito.php";
+
+        let body = {
+            "idCarrito":idUnico
+        }
+
+        let header = {
+            "method": "DELETE",
+            "headers": { "Content-Type": "aplication/json" },
+            "body": JSON.stringify(body)
+        }
+
+        fetch(url,header);
+
+
+
+    </script>
+
+    <div class="modal show" tabindex="-1" id="myModal" role="dialog" aria-hidden="false" style="display: block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Recordatorio</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Tu compra ha sido realizada con exito!</p>
+                </div>
+                <form method="POST" class="modal-footer" action="../Controladores/Principal.php">
+                    <button type="submit" name="aceptar" class="btn btn-primary">Aceptar</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->

@@ -84,7 +84,7 @@
                 <td colspan="1"><button><a href="VerCarrito.php">Volver</a></button></td>
                 <td colspan="4">
                     <form method="POST" action="">
-                        <b>Método de pago</b> <input type="text"> <button>Pagar</button>
+                        <b>Método de pago</b> <input name="tarjeta" type="text"> <button>Pagar</button>
                     </form>
                 </td>
             </tr>

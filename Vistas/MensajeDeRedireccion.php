@@ -15,7 +15,7 @@
           <h5 class="modal-title">Recordatorio</h5>
         </div>
         <div class="modal-body">
-          <p>Debes iniciar sesión para poder seguri con la compra.</p>
+          <p>Debes iniciar sesión para poder seguir con la compra.</p>
         </div>
         <form method="POST" class="modal-footer" action="../Controladores/Redireccionamiento.php">
           <button type="submit" name="cancelar" class="btn btn-secondary">Cancelar</button>
