@@ -38,6 +38,22 @@
     border-radius: 100%;
 }
 
+/*Boton con enlace, estilo para que el botón sea completamente 
+clicable*/
+button a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+button a,button a:hover{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+
 @media (max-width:1200px){
     .portada-inicio{
         justify-content: center;

@@ -1,3 +1,9 @@
+<!--Asignamiento asegurado de email en el carrito
+el idUnico se genera con el primer producto añadido al carrito
+si el usuario ha iniciado sesión antes de añadir nada y hacemos la comprobación
+en principal es posible que no se haga la modificación
+-->
+
 <!doctype html>
 <html lang="en">
 
@@ -96,6 +102,14 @@
         }
         ?>;
 
+        let email = <?php
+        if (isset($_SESSION["email"])) {
+            echo json_encode($_SESSION["email"]);
+        } else {
+            echo json_encode("");
+        }
+        ?>;
+
 
         let producto = <?php
         if (isset($_SESSION["producto"])) {
@@ -110,6 +124,7 @@
         async function init() {
             //Tenemos que esperar 
             await createCart();
+            await setEmailInCart();
             if (producto) {
                 await addProduct(idUnico, producto.id, producto.cantidad);
             }
@@ -132,6 +147,22 @@
             let result = await response.json();
 
             return result;
+        }
+        async function setEmailInCart() {
+            if (idUnico && email) {
+                let url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/carrito.php";
+                let body = {
+                    "idCarrito": idUnico,
+                    "email": email
+                }
+                let header = {
+                    "method": "PUT",
+                    "headers": { "Content-Type": "aplication/json" },
+                    "body": JSON.stringify(body)
+                };
+                let response =await fetch(url, header).then((res) => res.json());
+                console.log("Se ha asignado un email al carrito: "+response);
+            };
         }
         async function addProduct(idCarrito, idProd, cantidad) {
             let url = "http://localhost/Ludico/Api/ServicioCarrito/controlador/productosCarrito.php";
@@ -376,7 +407,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="../Js/styles/search.js"></script>
     <script src="../Js/verCarrito.js"></script>
 </body>
 

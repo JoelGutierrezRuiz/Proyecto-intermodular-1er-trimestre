@@ -40,6 +40,7 @@ fetch(url)
     phpPrice.value = res.precio;
     phpName.value = res.nombre;
     phpImg.value = res.foto;
+    
 })
 
 

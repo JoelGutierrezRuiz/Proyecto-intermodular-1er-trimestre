@@ -1,7 +1,3 @@
-<!--Vista envío-->
-<div class="promocion-envio row d-none d-md-block">
-    <p class="col-12">ENVÍO GRATUITO A PARTIR DE 45€ DE COMPRA</p>
-</div>
 <!--Vista header-->
 <header class="cabecera-contenedor row">
 
@@ -110,15 +106,15 @@
 
     <div class="d-none" id="lista-categorias">
         <ol>
-            <b><a href="#">Familiar</a></b>
+            <b><a href="../Vistas/productos.php?categoria=familiar">Familiar</a></b>
 
-            <b><a href="">De risa</a></b>
+            <b><a href="../Vistas/productos.php?categoria=risa">De risa</a></b>
 
-            <b><a href="">Infantil</a></b>
+            <b><a href="../Vistas/productos.php?categoria=infantil">Infantil</a></b>
 
-            <b><a href="">Memoria y atención</a></b>
+            <b><a href="../Vistas/productos.php?categoria=memoria">Memoria y atención</a></b>
 
-            <b><a href="">Fiesta</a></b>
+            <b><a href="../Vistas/productos.php?categoria=fiesta">Fiesta</a></b>
         </ol>
     </div>
 
@@ -151,3 +147,5 @@
 
 
 </header>
+<!--Script necesario para el buscador-->
+<script src="../Js/styles/search.js"></script>

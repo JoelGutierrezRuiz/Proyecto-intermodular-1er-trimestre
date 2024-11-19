@@ -2,12 +2,10 @@
 
 class Carrito
 {
-
     private $idCarrito;
     private $email;
     private $idProducto;
     private $cantidad;
-
     public function __construct($idCarrito = "", $email = "", $idProducto = "", $cantidad = "")
     {
         $this->idCarrito = $idCarrito;
@@ -40,7 +38,7 @@ class Carrito
     //Tenemos que utilizar el metodo para modificar las varirables que queremos
     public function modificar($link)
     {
-        $query = "UPDATE Carritos set email = :email where idCarrito = :idCarrito";
+        $query = "UPDATE carritos set email = :email where idCarrito = :idCarrito";
         $result = $link->prepare($query);
         $result->bindParam(":idCarrito", $this->idCarrito);
         $result->bindParam(":email", $this->email);

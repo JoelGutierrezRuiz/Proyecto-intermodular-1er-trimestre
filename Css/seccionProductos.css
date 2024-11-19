@@ -17,7 +17,11 @@ body{
 .seccion-productos-imagen{
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: center;
+}
+
+.seccion-productos-imagen p{
+    text-align: center;
 }
 
 .seccion-productos-imagen img{

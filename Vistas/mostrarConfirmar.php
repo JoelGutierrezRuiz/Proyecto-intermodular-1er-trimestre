@@ -25,9 +25,9 @@
 
 
         <table class="mostrar-pedido">
-            
-            <thead >
-                <td  colspan="5">Confirmar compra</td>
+
+            <thead>
+                <td colspan="5">Confirmar compra</td>
             </thead>
 
 
@@ -45,11 +45,11 @@
 
             $totalPedido = 0;
             foreach ($productosCarrito as $linea) {
-            
+
                 $lineaPedido = $linea;
                 $prod = json_decode(file_get_contents("http://localhost/Ludico/Api/ServicioProductos/controlador/producto.php?idProducto=" . $linea->idProducto));
                 $precioLinea = $prod->precio * $linea->cantidad;
-                $totalPedido+=$precioLinea;
+                $totalPedido += $precioLinea;
                 echo "
         <tr class='linea-pedido col-12'>
             <td><img src='../Imágenes/juegos/$prod->foto'></td>
@@ -73,15 +73,15 @@
 
                 <td>
                     <b>
-                        <?php 
-                            echo 5+$totalPedido." €"
-                        ?>
+                        <?php
+                        echo 5 + $totalPedido . " €"
+                            ?>
                     </b>
                 </td>
             </tr>
 
             <tr class="pago-pedido">
-                <td colspan="3"> <b>Método de pago</b> <input type="text">  </td>
+                <td colspan="3"> <b>Método de pago</b> <input type="text"> </td>
                 <td colspan="2"><button>Realizar pago</button></td>
             </tr>
 

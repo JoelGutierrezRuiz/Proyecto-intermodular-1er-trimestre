@@ -32,9 +32,15 @@
         <?php include "header.php" ?>
         <?php include "portada.php" ?>
         <?php include "marcasColab.php" ?>
-        <?php include "seccion.php" ?>
+        <?php
+        $categoria="familiar"; include "seccion.php" 
+        ?>
         <?php include "categorias.php" ?>
-        <?php include "seccion.php" ?>
+
+        <?php
+        $categoria="infantil"; include "seccion.php" 
+        ?>
+
 
     </div>
     <?php include "footer.php" ?>
@@ -53,8 +59,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script src="../Js/styles/search.js"></script>
-    <script src="../Js/principal.js"></script>
+
 </body>
 
 </html>

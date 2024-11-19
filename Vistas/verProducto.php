@@ -1,3 +1,5 @@
+
+<?php session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -38,7 +40,7 @@
                 <p id="producto-categoria">Familiar</p>
                 <p id="producto-descripcion">El mejor juego del mundo</p>
                 <p id="producto-precio">€</p>
-                <form method="POST" onsubmit="addToCart(event)" action="" >
+                <form method="POST" onsubmit="addToCart(event)" action="../Controladores/Detalle.php" >
                     <input name="producto-cantidad" id="producto-cantidad" type="number">
                     <input type="hidden" name="id-producto" id="idProducto" value="">
                     <input type="hidden" name="nombre-producto" id="nombre-producto" value="">
@@ -58,12 +60,6 @@
 
 
         </div>
-
-
-
-
-
-
     </div>
 
     <?php include "footer.php"?>
@@ -83,7 +79,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script src="../Js/styles/search.js"></script>
     <script src="../Js/verProductos.js"></script>
 </body>
 
