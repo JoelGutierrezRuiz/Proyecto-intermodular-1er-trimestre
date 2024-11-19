@@ -1,69 +1,72 @@
 
-body{
+/* Estilos generales */
+body {
     background-color: white;
 }
 
-.producto-contenedor{
+/* Contenedor principal de producto */
+.producto-contenedor {
     font-family: "POPPINS";
     margin-top: 50px;
     min-height: 500px;
 }
 
-
-
-
-#producto-imagen{
+/* Imagen del producto */
+#producto-imagen {
     width: 100%;
     height: 400px;
     object-fit: contain;
 }
 
-@media (max-width:768px){
-
-}
-
-.producto-datos{
-
+/* Datos del producto */
+.producto-datos {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-#producto-nombre{
+/* Nombre del producto */
+#producto-nombre {
     font-size: 35px;
     font-weight: 200;
 }
 
-#producto-categoria{
+/* Categoría del producto */
+#producto-categoria {
     font-size: 20px;
     text-align: start;
 }
 
-#producto-descripcion{
+/* Descripción del producto */
+#producto-descripcion {
     font-size: 12px;
 }
 
-#producto-precio{
+/* Precio del producto */
+#producto-precio {
     letter-spacing: 3px;
     font-size: 25px;
-    color: #2B3A67 ;
+    color: var(--color-primario);
     font-weight: 700;
 }
 
-form{
+/* Formulario de compra */
+form {
     display: flex;
     flex-direction: column;
-
     justify-content: center;
 }
-#producto-cantidad{
-    margin-bottom:20px;
+
+/* Entrada de cantidad */
+#producto-cantidad {
+    margin-bottom: 20px;
     width: 50%;
     border-radius: 5px;
     outline: none;
 }
 
-#producto-boton{
+/* Botón de añadir al carrito */
+#producto-boton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,12 +74,13 @@ form{
     padding: 10px 0;
     font-size: 20px;
     border-radius: 10px;
-    background-color: #F2545B ;
+    background-color: var(--color-destacar);
     color: white;
     border: none;
 }
 
-#producto-boton span{
+/* Ícono dentro del botón */
+#producto-boton span {
     margin-left: 2px;
     color: white;
 }

@@ -10,21 +10,21 @@
     <div class="categorias-portada-imgs row">
 
         <div class=" col-12 col-xl-4">
-            <a href="../Vistas/productos.html?categoria=Familiar"></a>
+            <a href="../Vistas/productos.php?categoria=familiar"></a>
             <p>Familiares</p>
             <img src="../Imágenes/portadas/familia.webp">
         </div>
 
 
         <div class="col-12 col-xl-4">
-            <a href="../Vistas/productos.html?categoria=Infantil"></a>
+            <a href="../Vistas/productos.php?categoria=infantil"></a>
             <p>Infantiles</p>
             <img src="../Imágenes/portadas/infantil.jpg">
         </div>
 
 
         <div class="col-12 col-xl-4">
-            <a href="../Vistas/productos.html?categoria=Estrategia"></a>
+            <a href="../Vistas/productos.php?categoria=estrategia"></a>
             <p>Estrategia</p>
             <img src="../Imágenes/portadas/estrategia.webp">
         </div>

@@ -8,27 +8,35 @@
     padding: 0 50px;
 }
 
-
 thead {
-    background-color: #2B3A67;
+    background-color: var(--color-primario);
     color: white;
-
 }
 
-
-.pago-pedido input{
+.pago-pedido input {
     border-radius: 5px;
     outline: none;
     border: 2px solid black;
 }
-.pago-pedido button{
+
+.pago-pedido button {
     font-weight: 500;
     padding: 5px;
     border-radius: 5px;
     outline: none;
-    color:#2B3A67;
+    color: white;
     border: none;
-    background-color: #FFC857;
+    background-color: var(--color-destacar);
+}
+
+.pago-pedido td[colspan="1"] button {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+a[href="VerCarrito.php"] {
+    text-decoration: none;
+    color: white;
 }
 
 .mostrar-pedido {
@@ -41,9 +49,6 @@ thead {
 td {
     text-align: center;
 }
-
-
-
 
 .info-pedido {
     width: 100%;

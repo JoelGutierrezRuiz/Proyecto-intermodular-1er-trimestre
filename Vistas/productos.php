@@ -13,6 +13,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!--Todos los CSS-->
+    <link rel="stylesheet" href="../Css/colores.css">
+
     <link rel="stylesheet" href="../Css/header.css">
     <link rel="stylesheet" href="../Css/portada.css">
     <link rel="stylesheet" href="../Css/footer.css">

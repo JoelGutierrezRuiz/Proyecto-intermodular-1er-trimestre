@@ -1,3 +1,5 @@
+
+
 /* Estilos generales */
 body {
     background-color: white;
@@ -41,12 +43,14 @@ body {
     margin: 0;
 }
 
-.eliminar-producto{
+/* Eliminar producto */
+.eliminar-producto {
     cursor: pointer;
     font-weight: 700;
 }
-.eliminar-producto a{
-    color: #2B3A67;
+
+.eliminar-producto a {
+    color: var(--color-primario);
 }
 
 /* Botones de los productos */
@@ -59,11 +63,11 @@ body {
 }
 
 .carrito-producto-añadir {
-    background-color: #2B3A67;
+    background-color: var(--color-primario);
 }
 
 .carrito-producto-quitar {
-    background-color: #F2545B;
+    background-color: var(--color-destacar);
 }
 
 /* Sección de vacíos o con productos */
@@ -83,22 +87,26 @@ body {
     flex-direction: column;
 }
 
-#subtotal button, #subtotal form button, #sin-productos button  {
+#subtotal button,
+#subtotal form button,
+#sin-productos button {
     margin-top: 10px;
     max-width: 200px;
     border-radius: 5px;
     padding: 5px;
-    border: 2px solid #f5f5f5;
+    border: 2px solid var(--color-fondo);
     color: white;
 }
 
-#subtotal button , #sin-productos button {
+#subtotal button,
+#sin-productos button {
     position: relative;
-    background-color: #2B3A67;
+    background-color: var(--color-primario);
 }
 
 /* Botón de seguir comprando */
-#subtotal button:first-of-type:not(form button) a, #sin-productos button a {
+#subtotal button:first-of-type:not(form button) a,
+#sin-productos button a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -110,7 +118,7 @@ body {
 
 /* Formulario y botón de confirmar */
 #subtotal form button {
-    background-color: #F2545B;
+    background-color: var(--color-destacar);
 }
 
 #subtotal form {
@@ -119,14 +127,14 @@ body {
     display: flex;
 }
 
-/* CRUD del producto */
+/* cruf del producto */
 .carrito-producto-crud {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
 }
 
-/* Entrada de cantidad */
+/* inPut de cantidad */
 .cantidades {
     margin-bottom: 20px;
     width: 50%;

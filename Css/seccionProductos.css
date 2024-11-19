@@ -1,71 +1,77 @@
 
-body{
+/* Estilo básico del body */
+body {
     background-color: white;
 }
 
-.seccion-contenedor{
+/* Contenedor principal de la sección */
+.seccion-contenedor {
     font-family: "Poppins";
-    margin:150px 0 0 0;
+    margin: 150px 0 0 0;
 }
 
-.seccion-productos{
+/* Sección de productos */
+.seccion-productos {
     border: 2px solid gray;
     border-radius: 25px;
     background-color: white;
 }
 
-.seccion-productos-imagen{
+/* Contenedor de la imagen de productos */
+.seccion-productos-imagen {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.seccion-productos-imagen p{
+.seccion-productos-imagen p {
     text-align: center;
 }
 
-.seccion-productos-imagen img{
-    width:100%;
-    height:200px;
+.seccion-productos-imagen img {
+    width: 100%;
+    height: 200px;
     object-fit: contain;
 }
 
-.seccion-productos-imagen a{
+.seccion-productos-imagen a {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.seccion-productos-imagen:hover{
-    box-shadow: 0 10px 20px rgba(114, 114, 114, 0.699)
+.seccion-productos-imagen:hover {
+    box-shadow: 0 10px 20px rgba(114, 114, 114, 0.699);
 }
 
-
-.seccion-titulo{
+/* Estilo del título de la sección */
+.seccion-titulo {
     font-size: 35px;
-    font-weight:600;
-    padding:10px 0 0 20px;
+    font-weight: 600;
+    padding: 10px 0 0 20px;
 }
-.seccion-vermas{
+
+/* Contenedor para el enlace de ver más */
+.seccion-vermas {
     justify-content: flex-end;
     padding: 0 30px 0 10px;
 }
-.seccion-vermas a{
-    color:#F2545B;
+
+.seccion-vermas a {
+    color: var(--color-destacar);
 }
 
-
-@media ((min-width:550px) and (max-width:770px)){
-    .seccion-contenedor{
+@media (min-width: 550px) and (max-width: 770px) {
+    .seccion-contenedor {
         margin-top: 90px;
     }
-    .seccion-titulo{
+    .seccion-titulo {
         font-size: 20px;
     }
 }
 
-@media (max-width:550px){
-    .seccion-contenedor{
+@media (max-width: 550px) {
+    .seccion-contenedor {
         margin-top: 30px;
     }
 }

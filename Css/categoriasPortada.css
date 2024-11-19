@@ -1,43 +1,48 @@
 
-.categorias-portada-contenedor{
+
+/* Contenedor de la portada de categorías */
+.categorias-portada-contenedor {
     margin-top: 150px;
 }
 
-.categorias-portada-imgs{
+/* Contenedor de las imágenes de la portada */
+.categorias-portada-imgs {
     justify-content: space-evenly;
 }
 
-
-.categorias-portada-imgs div:nth-of-type(1){
-    background-color:#F2545B ;
+/* Estilos de las cajas de cada categoría */
+.categorias-portada-imgs div:nth-of-type(1) {
+    background-color: var(--color-destacar);
 }
 
-.categorias-portada-imgs div:nth-of-type(2){
-    background-color:#FFC857;
+.categorias-portada-imgs div:nth-of-type(2) {
+    background-color: #FFC857; /* Hexadecimal directo, no es el color primario ni destacar */
 }
 
-.categorias-portada-imgs div:nth-of-type(3){
-    background-color:#2B3A67 ;
+.categorias-portada-imgs div:nth-of-type(3) {
+    background-color: var(--color-primario);
 }
 
-.categorias-portada-imgs div p{
+/* Estilo de los textos dentro de las cajas de categoría */
+.categorias-portada-imgs div p {
     font-size: 25px;
-    color:#F5F5F5;
-
+    color: #F5F5F5; /* Color hexadecimal directo */
 }
 
-.categorias-portada-titulo{
+/* Título de la sección */
+.categorias-portada-titulo {
     padding-bottom: 50px;
 }
 
-.categorias-portada-titulo h3{
+/* Estilo del título principal */
+.categorias-portada-titulo h3 {
     margin-bottom: 10px;
     font-size: 25px;
     font-weight: 700;
 }
 
-
-.categorias-portada-imgs div{
+/* Estilos para las cajas de categorías */
+.categorias-portada-imgs div {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -48,22 +53,18 @@
     border-radius: 25px;
 }
 
-.categorias-portada-imgs div a{
+/* Estilos de los enlaces dentro de cada categoría */
+.categorias-portada-imgs div a {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.categorias-portada-imgs img{
+/* Estilos de las imágenes dentro de las categorías */
+.categorias-portada-imgs img {
     cursor: pointer;
     width: 80%;
     height: 150px;
     object-fit: cover;
     border-radius: 25px;
-}
-
-@media (max-width:1200px){
-    .categorias-portada-imgs div{}
-
-
 }

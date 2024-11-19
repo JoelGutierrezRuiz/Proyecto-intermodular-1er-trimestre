@@ -1,17 +1,22 @@
-body{
+
+/* Estilo básico del body */
+body {
     background-color: white;
     height: 100vh;
 }
 
-
-.resultados-row{
+/* Fila de resultados */
+.resultados-row {
     min-height: 500px;
-
 }
-.resultados-tit{
+
+/* Título de resultados */
+.resultados-tit {
     margin-top: 20px;
 }
-.producto{
+
+/* Estilo de los productos */
+.producto {
     position: relative;
     padding: 15px 5px;
     display: flex;
@@ -19,28 +24,28 @@ body{
     align-items: center;
 }
 
-.producto:hover{
-    box-shadow: 0 10px 20px rgba(114, 114, 114, 0.699)
+.producto:hover {
+    box-shadow: 0 10px 20px rgba(114, 114, 114, 0.699);
 }
 
-.producto a{
-    padding:20px 0 0 0;
+.producto a {
+    padding: 20px 0 0 0;
     width: 100%;
     height: 90%;
     display: none;
 }
 
-.producto:hover a{
+.producto:hover a {
     display: block;
     position: absolute;
 }
 
-.producto *{
+.producto * {
     margin: 5px;
 }
 
-.producto img{
+.producto img {
     width: 100%;
-    height:150px;
+    height: 150px;
     object-fit: contain;
 }
