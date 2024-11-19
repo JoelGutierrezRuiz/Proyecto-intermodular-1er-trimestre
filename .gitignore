@@ -3,5 +3,6 @@ Api/ServicioCarrito/config/
 Api/ServicioProductos/config/
 Api/ServicioCliente/config/
 
+
 # Ignorar carpeta global en la raíz
 config/
