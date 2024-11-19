@@ -1,15 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['dniCliente'])){
-  echo $_SESSION['dniCliente'].' --> '.$_SESSION['nombre'] ;
-}
-else{
-  echo "No has iniciado sesion";
-}
-
-?>
-
-
 <!doctype html>
 <html lang="en">
 
@@ -24,7 +12,7 @@ else{
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../Css/acceso/inicio.css">
-    <link rel=" stylesheet" href="../Css/global.css">
+  <link rel=" stylesheet" href="../Css/global.css">
 
 </head>
 
@@ -38,9 +26,10 @@ else{
 
 
   <div class="container">
-  
 
-    <form class="formulario row pt-0 pt-sm-170" onsubmit="login(event)" action="../Controladores/Validar.php" method="POST">
+
+    <form class="formulario row pt-0 pt-sm-170" onsubmit="login(event)" action="../Controladores/Validar.php"
+      method="POST">
       <p>Inicio de sesión</p>
       <p>Email</p>
       <input name="email" id="email-cliente" type="text">
@@ -51,14 +40,22 @@ else{
         <span id="pwd-off" class="material-symbols-rounded">Visibility_off</span>
       </div>
 
-      <button name="Iniciar" type="submit" id="iniciar-sesion" >Iniciar sesión</button>
+      <button name="Iniciar" type="submit" id="iniciar-sesion">Iniciar sesión</button>
     </form>
 
     <div class="navegador justify-content-center row">
 
       <p class="col-12 d-flex justify-content-center">¿Aún no estas registrado?</p>
-      
+
       <p id="login-error" class="col-12  justify-content-center">Usuario o contraseña incorrectos</p>
+      
+      <!--Bootstrap google-->
+      <button class="boton-google btn btn-light btn-lg d-flex align-items-center shadow-sm border rounded-pill px-4 py-2">
+        <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Logo" class="me-2" width="24"
+          height="24">
+      </button>
+      
+      
       
       <a class="col-12 d-flex justify-content-center" href="../Controladores/Registro.php">
         <button>Registrarse</button>
@@ -82,7 +79,7 @@ else{
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-    <script src="../Js/acceso/inicio.js"></script>
+  <script src="../Js/acceso/inicio.js"></script>
 </body>
 
 </html>

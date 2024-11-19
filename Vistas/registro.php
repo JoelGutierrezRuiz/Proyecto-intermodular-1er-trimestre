@@ -48,7 +48,7 @@
             
       <p id="login-error" class="col-12  justify-content-center">Mensaje de error</p>
       
-      <a class="col-12 d-flex justify-content-center" href="../Controladores/validar.php">
+      <a class="col-12 d-flex justify-content-center" href="../Controladores/Validar.php">
         <button>Iniciar sesión</button>
       </a>
 

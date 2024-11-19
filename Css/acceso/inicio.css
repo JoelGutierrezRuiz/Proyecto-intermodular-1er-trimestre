@@ -100,6 +100,10 @@ a button{
     cursor: pointer;
 }
 
-#pwd-off{
+#pwd-on{
     display: none;
+}
+
+.boton-google{
+    justify-content: center;
 }
