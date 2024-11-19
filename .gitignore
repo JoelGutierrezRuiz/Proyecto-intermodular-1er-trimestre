@@ -1,4 +1,1 @@
-Api/ServicioCarrito/config/
-Api/ServicioProductos/config/
-Api/ServicioCliente/config/
-config/
+**/config/
