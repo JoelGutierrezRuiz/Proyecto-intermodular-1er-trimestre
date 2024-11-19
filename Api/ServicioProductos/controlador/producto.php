@@ -21,9 +21,14 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
 
     if(isset($_GET["categoria"])){
         $producto = new Producto("","","","","",$_GET["categoria"]);
-        //echo var_dump($producto);
         header("HTTP/1.1 211 OK");
-        echo json_encode( $producto->buscarCategoria($db->link));
+        if($_GET["categoria"]=="todos"){
+            echo json_encode( Producto::getAll($db->link));  
+        }else{
+            echo json_encode( $producto->buscarCategoria($db->link));
+        }
+        //echo var_dump($producto);
+
     }
 
     if(isset($_GET["idProducto"])){

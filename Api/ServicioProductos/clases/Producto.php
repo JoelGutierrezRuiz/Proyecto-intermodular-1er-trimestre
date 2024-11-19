@@ -19,6 +19,13 @@ class Producto
         $this->categoria = $categoria;
     }
 
+    static function getAll($link){
+        $query = 'SELECT * FROM productos';
+        $result = $link->prepare($query);
+        $result->execute();
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function buscarId($link)
     {
         $query = 'SELECT * FROM productos WHERE idProducto=:idProducto';

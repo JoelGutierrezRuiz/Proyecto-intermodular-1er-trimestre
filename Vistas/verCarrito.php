@@ -47,6 +47,7 @@ en principal es posible que no se haga la modificación
 
             <div id="sin-productos" class="justify-content-between col-6 offset-3">
                 <p>Carrito vacío</p>
+                <button><a href="../Vistas/productos.php?categoria=todos">Seguir comprando</a></button>
             </div>
 
             <!--
@@ -75,9 +76,10 @@ en principal es posible que no se haga la modificación
         </div>
 
         <hr>
-        <div id="subtotal" class=" justify-content-between col-6 offset-3">
+        <div id="subtotal" class="justify-content-between col-6 offset-3">
             <p>Subtotal</p>
             <p id="totalCarrito">Total</p>
+            <button><a href="../Vistas/productos.php?categoria=todos">Seguir comprando</a></button>
             <button id="actualizar">Actualizar</button>
             <form action="" method="POST">
                 <button name="confirmar"> Confirmar pedido </button>
@@ -128,8 +130,8 @@ en principal es posible que no se haga la modificación
             if (producto) {
                 await addProduct(idUnico, producto.id, producto.cantidad);
             }
-            productsList = await productList();
-            await printProductos(productsList);
+
+            await printProductos();
             refreshButton.addEventListener("click", refreshPage);
         }
         async function createCart() {
@@ -182,7 +184,7 @@ en principal es posible que no se haga la modificación
             <?php unset($_SESSION["producto"]) ?>
         }
         async function refreshPage() {
-
+            let productsList = await productList();
             let cantidades = document.getElementsByClassName("cantidades");
             let putPromise = [];
 
@@ -205,6 +207,8 @@ en principal es posible que no se haga la modificación
             }
 
             let fetchAll = await Promise.all(putPromise);
+            clearCart();
+            printProductos();
         }
         async function productList() {
 
@@ -312,6 +316,7 @@ en principal es posible que no se haga la modificación
                             }
                             else {
                                 cartPopUp.style.display = "none";
+                                printProductos();
                             }
                         }
                     })
@@ -338,8 +343,11 @@ en principal es posible que no se haga la modificación
             // Devolver el elemento creado
             return carritoProducto;
         }
-        async function printProductos(productos) {
-
+        
+        async function printProductos() {
+            
+            clearCart();
+            productos = await productList();
             let cartPrice = document.getElementById("totalCarrito");
             const contenedor = document.getElementById("contenedorProductos");
             const subtotal = document.getElementById("subtotal")
@@ -348,13 +356,9 @@ en principal es posible que no se haga la modificación
             let promesas = [];
 
 
-
-            clearCart();
-
-
             if (productos.length == 0) {
                 withProducts.style.display = "none";
-                noProducts.style.display = "block";
+                noProducts.style.display = "flex";
                 subtotal.style.display = "none";
                 return;
             }
@@ -382,6 +386,9 @@ en principal es posible que no se haga la modificación
 
         }
         function clearCart() {
+            let cartPrice = document.getElementById("totalCarrito");
+            totalPrice=0;
+            cartPrice.innerHTML = "0";
             const htmlProducts = document.getElementsByClassName("carrito-producto");
             for (let i = 0; i < htmlProducts.length; i++) {
                 htmlProducts[i].remove();
